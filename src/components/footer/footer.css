@@ -1,0 +1,6 @@
+@import url(./__copyright/footer__copyright.css);
+@import url(./__item/footer__item.css);
+
+.footer {
+  display: flex;
+}

@@ -1,0 +1,5 @@
+@import url(./__photo/author__photo.css);
+
+.author {
+    border-radius: 50%;
+}

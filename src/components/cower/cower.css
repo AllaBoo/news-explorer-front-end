@@ -1,0 +1,14 @@
+@import url(./__button/cower__button.css);
+@import url(./__input/cower__input.css);
+@import url(./__search/cower__search.css);
+@import url(./__title/cower__title.css);
+@import url(./__container/cower__container.css);
+
+.cower {
+  position: relative;
+  background-image: url(../../images/cower.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 576px;
+}

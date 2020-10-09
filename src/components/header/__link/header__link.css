@@ -1,0 +1,15 @@
+.header__link {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  padding-bottom: 27px;
+}
+
+.header__link:visited {
+  color: #FFFFFF;
+}
