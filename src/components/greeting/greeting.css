@@ -1,0 +1,10 @@
+@import url(./__subtitle/greeting__subtitle.css);
+@import url(./__text/greeting__text.css);
+@import url(./__title/greeting__title.css);
+@import url(./);
+@import url(./);
+
+.greeting {
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}

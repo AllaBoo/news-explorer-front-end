@@ -1,6 +1,7 @@
 .result__button {
   width: 288px;
-  margin: 64px 576px 0 576px;
+  display: block;
+  margin: 4rem auto 0;
   background-color: rgb(255, 255, 255);
   border-radius: 80px;
 }

@@ -1,6 +1,8 @@
 .result__container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   margin-top: 64px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
 }

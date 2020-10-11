@@ -8,9 +8,10 @@
 @import url(./__tag/article__tag.css);
 @import url(./__title/article__title.css);
 @import url(./__tooltip/article__tooltip.css);
+@import url(./__icon-container/article__icon-container.css);
 
 .article {
-  width: 32.5%;
+  width: 100%;
   min-height: 36rem;
   position: relative;
 }

@@ -3,4 +3,7 @@
 
 .result {
   background-color: rgb(245, 246, 247);
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }

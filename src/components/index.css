@@ -10,6 +10,8 @@
 @import url(./result/result.css);
 @import url(./article/article.css);
 @import url(./text/text.css);
+@import url(./greeting/greeting.css);
+@import url(./span/span.css);
 @import url(./footer/footer.css);
 
 @font-face {

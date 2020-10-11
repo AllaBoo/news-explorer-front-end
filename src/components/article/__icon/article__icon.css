@@ -1,6 +1,8 @@
 @import url(./_normal/article__icon_normal.css);
 @import url(./_marked/article__icon_marked.css);
 @import url(./_hover/article__icon_hover.css);
+@import url(./_trash/article__icon_trash.css);
+@import url(./_trash-hover/article__icon_trash-hover.css);
 
 .article__icon {
   background-color: rgb(255, 255, 255);
