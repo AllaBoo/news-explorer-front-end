@@ -1,0 +1,9 @@
+.article__tooltip {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: .625rem;
+  box-sizing: border-box;
+  padding: 13.5px;
+  margin: 0 5px 0 0;
+}

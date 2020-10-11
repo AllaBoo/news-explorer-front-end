@@ -1,0 +1,16 @@
+@import url(./__container/article__container.css);
+@import url(./__date/article__date.css);
+@import url(./__description/article__description.css);
+@import url(./__text/article__text.css);
+@import url(./__icon/article__icon.css);
+@import url(./__photo/article__photo.css);
+@import url(./__source/article__source.css);
+@import url(./__tag/article__tag.css);
+@import url(./__title/article__title.css);
+@import url(./__tooltip/article__tooltip.css);
+
+.article {
+  width: 32.5%;
+  min-height: 36rem;
+  position: relative;
+}

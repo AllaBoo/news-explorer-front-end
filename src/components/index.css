@@ -1,11 +1,14 @@
 @import url(./body/body.css);
 @import url(./root/root.css);
+@import url(./lower-layer/lower-layer.css);
 @import url(./nav/nav.css);
 @import url(./button/button.css);
 @import url(./header/header.css);
 @import url(./cower/cower.css);
 @import url(./author/author.css);
 @import url(./title/title.css);
+@import url(./result/result.css);
+@import url(./article/article.css);
 @import url(./text/text.css);
 @import url(./footer/footer.css);
 
