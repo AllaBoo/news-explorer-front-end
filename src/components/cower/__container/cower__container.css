@@ -1,3 +1,5 @@
 .cower__container {
-  margin: 80px auto;
+  width: 42%;
+  margin: 5rem auto;
+  color: rgb(255, 255, 255);
 }

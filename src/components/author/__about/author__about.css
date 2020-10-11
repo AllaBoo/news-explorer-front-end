@@ -1,0 +1,5 @@
+.author__about {
+  display: flex;
+  flex-direction: column;
+  margin: 8.25rem 0 0 3.5rem;
+}

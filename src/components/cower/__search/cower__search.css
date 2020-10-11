@@ -1,3 +1,10 @@
 .cower__search {
-    
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(209, 210, 214);
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
 }
