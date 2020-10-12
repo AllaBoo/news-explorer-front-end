@@ -1,8 +1,6 @@
 .result__container {
   display: grid;
-  margin-top: 64px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 32% 32% 32%;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
 }
