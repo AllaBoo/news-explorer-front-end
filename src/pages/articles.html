@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsExplorer</title>
-  <link rel="icon" href="../images/icons/favicon.png">
-  <link rel="stylesheet" href="../components/index.css">
+  <link rel="icon" href="<%=require('../images/icons/favicon.png') %>">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.articles.css %>">
 </head>
 
 <body class="body">
@@ -19,7 +19,7 @@
         <li class="header__item"><a class="header__link header__link_active"
             href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
         <li class="header__item"><button class="header__button button">Грета <img class="header__icon"
-              src="../images/icons/exit.svg" alt="Иконка выхода (разлогиниться)"> </button></li>
+              src="<%=require('../images/icons/exit.svg')%>" alt="Иконка выхода (разлогиниться)"> </button></li>
       </ul>
     </nav>
   </header>
@@ -32,10 +32,11 @@
   <main class="result root">
     <div class="result__container">
       <div class="article lower-layer">
-        <img src="../images/image_06.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('../images/image_06.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container">
           <p class="article__tag lower-layer">Природа</p>
-          <button class="article__icon"><img src="../images/icons/trash.svg" alt="Иконка удалить"></button>
+          <button class="article__icon"><img src="<%=require('../images/icons/trash.svg')%>"
+              alt="Иконка удалить"></button>
         </div>
         <div class="article__description">
           <p class="article__date">2 августа, 2019</p>
@@ -48,12 +49,13 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="../images/image_01.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('../images/image_01.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container">
           <p class="article__tag lower-layer">Природа</p>
           <div class="article__icon-container">
             <p class="article__tooltip lower-layer">Убрать из сохранённых</p>
-            <button class="article__icon"><img src="../images/icons/trash_hover.svg" alt="Иконка удалить"></button>
+            <button class="article__icon"><img src="<%=require('../images/icons/trash_hover.svg')%>"
+                alt="Иконка удалить"></button>
           </div>
         </div>
         <div class="article__description">
@@ -66,10 +68,11 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="../images/image_05.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('../images/image_05.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container">
           <p class="article__tag lower-layer">Тайга</p>
-          <button class="article__icon"><img src="../images/icons/trash.svg" alt="Иконка удалить"></button>
+          <button class="article__icon"><img src="<%=require('../images/icons/trash.svg')%>"
+              alt="Иконка удалить"></button>
         </div>
         <div class="article__description">
           <p class="article__date">2 августа, 2019</p>
@@ -81,10 +84,11 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="../images/image_06.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('../images/image_06.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container">
           <p class="article__tag lower-layer">Парки</p>
-          <button class="article__icon"><img src="../images/icons/trash.svg" alt="Иконка удалить"></button>
+          <button class="article__icon"><img src="<%=require('../images/icons/trash.svg')%>"
+              alt="Иконка удалить"></button>
         </div>
         <div class="article__description">
           <p class="article__date">2 августа, 2019</p>
@@ -97,11 +101,12 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="../images/image_01.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('../images/image_01.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container">
           <p class="article__tag lower-layer">Фотография</p>
           <div class="article__icon-container">
-            <button class="article__icon"><img src="../images/icons/trash.svg" alt="Иконка удалить"></button>
+            <button class="article__icon"><img src="<%=require('../images/icons/trash.svg')%>"
+                alt="Иконка удалить"></button>
           </div>
         </div>
         <div class="article__description">
@@ -127,12 +132,15 @@
       <nav class="nav">
         <ul class="footer__nav nav__list">
           <li class="footer__item"><a class="footer__link" href="https://github.com/AllaBoo"><img
-                src="../images/icons/github.svg" class="footer__icon" alt="Иконка GitHub"></a></li>
+                src="<%=require('../images/icons/github.svg')%>" class="footer__icon" alt="Иконка GitHub"></a></li>
           <li class="footer__item"><a class="footer__link"
-              href="https://www.facebook.com/profile.php?id=100006530780129"><img src="../images/icons/facebook.svg"
-                class="footer__icon" alt="Иконка Facebook"></a></li>
+              href="https://www.facebook.com/profile.php?id=100006530780129"><img
+                src="<%=require('../images/icons/facebook.svg')%>" class="footer__icon" alt="Иконка Facebook"></a></li>
         </ul>
       </nav>
     </div>
   </footer>
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
+
+</html>

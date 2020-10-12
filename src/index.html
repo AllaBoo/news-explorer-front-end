@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsExplorer</title>
-  <link rel="icon" href="images/icons/favicon.png">
-  <link rel="stylesheet" href="components/index.css">
+  <link rel="icon" href="<%=require('./images/icons/favicon.png') %>">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.index.css %>">
 </head>
 
 <body class="body">
@@ -35,7 +35,7 @@
     <h2 class="result__title title">Результаты поиска</h2>
     <div class="result__container">
       <div class="article lower-layer">
-        <img src="images/image_08.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('./images/image_08.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
           <button class="article__icon article__icon_normal"></button>
         </div>
@@ -50,7 +50,7 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="images/image_04.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('./images/image_04.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
           <button class="article__icon article__icon_normal"></button>
         </div>
@@ -64,7 +64,7 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="images/image_07.jpg" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('./images/image_07.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
           <div class="article__icon-container">
             <p class="article__tooltip lower-layer">Войдите, чтобы сохранять статьи</p>
@@ -83,7 +83,7 @@
     <button class="button result__button">Показать ещё</button>
   </section>
   <section class="author root">
-    <img src="images/author.png" class="author__photo" alt="Портрет автора проекта">
+    <img src="<%=require('./images/author.png')%>" class="author__photo" alt="Портрет автора проекта">
     <div class="author__about">
       <h2 class="title">Об авторе</h2>
       <p class="author__description text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
@@ -108,24 +108,25 @@
       <nav class="nav">
         <ul class="footer__nav nav__list">
           <li class="footer__item"><a class="footer__link" href="https://github.com/AllaBoo"><img
-                src="images/icons/github.svg" class="footer__icon" alt="Иконка GitHub"></a></li>
+                src="<%=require('./images/icons/github.svg')%>" class="footer__icon" alt="Иконка GitHub"></a></li>
           <li class="footer__item"><a class="footer__link"
-              href="https://www.facebook.com/profile.php?id=100006530780129"><img src="images/icons/facebook.svg"
-                class="footer__icon" alt="Иконка Facebook"></a></li>
+              href="https://www.facebook.com/profile.php?id=100006530780129"><img
+                src="<%=require('./images/icons/facebook.svg')%>" class="footer__icon" alt="Иконка Facebook"></a></li>
         </ul>
       </nav>
     </div>
   </footer>
 
   <section class="root result">
-    <img src="images/icons/not-found_v1.svg" class="result__img" alt="Пиктограмма нет результатов поиска">
+    <img src="<%=require('./images/icons/not-found_v1.svg')%>" class="result__img"
+      alt="Пиктограмма нет результатов поиска">
     <p class="result__not-found-title">Ничего не найдено</p>
     <p class="text result__not-found-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
   </section>
 
   <div class="popup">
     <div class="popup__content">
-      <img src="images/icons/close.svg" alt="Иконка закрытия окна" class="popup__close">
+      <img src="<%=require('./images/icons/close.svg')%>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Вход</h3>
       <form class="popup__form">
         <div class="popup__input-container">
@@ -149,7 +150,7 @@
 
   <div class="popup">
     <div class="popup__content">
-      <img src="images/icons/close.svg" alt="Иконка закрытия окна" class="popup__close">
+      <img src="<%=require('./images/icons/close.svg')%>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form">
         <div class="popup__input-container">
@@ -180,10 +181,12 @@
 
   <div class="popup">
     <div class="popup__content">
-      <img src="images/icons/close.svg" alt="Иконка закрытия окна" class="popup__close">
+      <img src="<%=require('./images/icons/close.svg')%>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
       <a class="popup__link">Войти</a>
     </div>
   </div>
-
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
+
+</html>
