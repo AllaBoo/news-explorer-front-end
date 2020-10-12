@@ -41,5 +41,6 @@ $RECYCLE.BIN/
 
 # Dev dependences
 node_modules
+dist
 .env
 *.log
