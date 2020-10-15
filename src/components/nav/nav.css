@@ -7,3 +7,10 @@
   align-items: baseline;
   align-content: center;
 }
+
+
+@media (max-width: 450px) {
+  .nav {
+    display: none;
+  }
+}

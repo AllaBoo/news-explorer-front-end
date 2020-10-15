@@ -7,7 +7,17 @@
   border-radius: 100px;
   display: flex;
   justify-content: space-between;
-  margin-top: 4rem;
-  margin-bottom: 5rem;
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+@media (max-width: 500px) {
+  .cower__search {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    backdrop-filter: none;
+    flex-direction: column;
+  }
 }

@@ -12,3 +12,11 @@
 .header__link:visited {
   color: inherit;
 }
+
+
+@media (max-width: 769px) {
+  .header__link {
+    font-size: 1rem;
+    padding-bottom: 17px;
+  }
+}

@@ -3,3 +3,9 @@
   color: inherit;
   border: 1px solid;
 }
+
+@media (max-width: 769px) {
+  .header__button {
+    font-size: 1rem;
+  }
+}

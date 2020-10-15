@@ -14,3 +14,11 @@
 .cower__button:active {
   background-color: rgb(42, 101, 204);
 }
+
+
+@media (max-width: 500px) {
+  .cower__button {
+    width: 100%;
+    padding: 1rem;
+  }
+}

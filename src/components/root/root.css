@@ -2,3 +2,15 @@
   box-sizing: border-box;
   padding: 0 104px;
 }
+
+@media (max-width: 1024px) {
+  .root {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 370px) {
+  .root {
+    padding: 0 16px;
+  }
+}
