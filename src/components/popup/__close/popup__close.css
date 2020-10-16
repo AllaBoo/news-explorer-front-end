@@ -6,3 +6,10 @@
   cursor: pointer;
 }
 
+@media (max-width: 370px) {
+  .popup__close {
+    width: 26px;
+    top: -46px;
+    right: 23px;
+  }
+}

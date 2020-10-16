@@ -10,11 +10,6 @@
 
 @media (max-width: 769px) {
   .author__about {
-    margin: 40px 0 0 32px;
-  }
-}
-@media (max-width: 650px) {
-  .author__about {
-    margin: 24px 0 0 0;
+    margin: 0;
   }
 }

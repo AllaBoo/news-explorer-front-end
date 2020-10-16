@@ -5,7 +5,7 @@
   grid-row-gap: 16px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   .result__container {
     grid-template-columns: 50% 50%;
   }

@@ -1,3 +1,9 @@
 .popup__input-container {
   margin: 0 0 2rem;
 }
+
+@media (max-width: 370px) {
+  .popup__input-container{
+    margin: 0 0 23px;
+  }
+}

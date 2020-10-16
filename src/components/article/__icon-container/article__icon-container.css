@@ -3,7 +3,7 @@
   width: fit-content;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
   .article__icon-container  {
     flex-direction: column-reverse;
     align-items: flex-end;

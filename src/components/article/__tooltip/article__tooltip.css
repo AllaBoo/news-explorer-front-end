@@ -10,9 +10,16 @@
   width: fit-content;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
   .article__tooltip {
     margin: 6px 0 0;
     padding: .5rem;
+    font-size: .5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .article__tooltip {
+    font-size: .625rem;
   }
 }
