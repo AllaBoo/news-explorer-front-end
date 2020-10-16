@@ -2,3 +2,15 @@
   display: flex;
   justify-content: flex-end;
 }
+
+@media (max-width: 760px) {
+  .footer__container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer__container {
+    justify-content: space-between;
+  }
+}

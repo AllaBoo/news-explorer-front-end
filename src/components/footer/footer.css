@@ -1,12 +1,21 @@
 @import url(./__copyright/footer__copyright.css);
-@import url(./__item/footer__item.css);
 @import url(./__link/footer__link.css);
 @import url(./__container/footer__container.css);
-@import url(./__nav/footer__nav.css);
+@import url(./__nav-icons/footer__nav-icons.css);
+@import url(./__nav-text/footer__nav-text.css);
+@import url(./__item-icon/footer__item-icon.css);
+@import url(./__item-text/footer__item-text.css);
 
 .footer {
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 104px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .footer {
+    flex-direction: column-reverse;
+  }
 }

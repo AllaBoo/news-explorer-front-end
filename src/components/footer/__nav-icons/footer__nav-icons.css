@@ -1,0 +1,9 @@
+.footer__nav-icons {
+  margin-left: 42px;
+}
+
+@media (max-width: 850px) {
+  .footer__nav-icons {
+    margin-left: 0;
+  }
+}

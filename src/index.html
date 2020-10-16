@@ -11,6 +11,7 @@
 </head>
 
 <body class="body">
+  <!--
   <div class="cower">
     <header class="header header_white root">
       <p class="header__logo">NewsExplorer</p>
@@ -32,6 +33,7 @@
       </form>
   </div>
   </main>
+  -->
   <section class="root result">
     <h2 class="result__title title">Результаты поиска</h2>
     <div class="result__container">
@@ -89,9 +91,8 @@
 
   <section class="author root">
     <picture class="author__picture">
-      <source media="(max-width: 370px)" srcset="<%=require('./images/author.png')%>">
-      <source media="(max-width: 769px)" srcset="<%=require('./images/author.png')%>">
-      <source srcset="<%=require('./images/author.png')%>" media="(max-width: 1920px)">
+      <source media="(max-width: 769px)" srcset="<%=require('./images/author-tablet.png')%>">
+      <source media="(max-width: 1920px)" srcset="<%=require('./images/author.png')%>">
       <img src="<%=require('./images/author.png')%>" alt="Портрет автора проекта" class="author__photo">
     </picture>
     <div class="author__about">
@@ -106,21 +107,23 @@
     <i class="circle-preloader"></i>
     <p class="result__text text">Идет поиск новостей...</p>
   </section>
-  <!--
+
   <footer class="footer root">
     <p class="footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
     <div class="footer__container">
       <nav class="nav">
-        <ul class="footer__nav nav__list">
-          <li class="footer__item"><a class="footer__link" href="https://news-explorer-praktikum.ru">Главная</a></li>
-          <li class="footer__item"><a class="footer__link" href="https://praktikum.yandex.ru">Яндекс.Практикум</a></li>
+        <ul class="footer__nav-text nav__list">
+          <li class="footer__item-text"><a class="footer__link" href="https://news-explorer-praktikum.ru">Главная</a>
+          </li>
+          <li class="footer__item-text"><a class="footer__link" href="https://praktikum.yandex.ru">Яндекс.Практикум</a>
+          </li>
         </ul>
       </nav>
       <nav class="nav">
-        <ul class="footer__nav nav__list">
-          <li class="footer__item"><a class="footer__link" href="https://github.com/AllaBoo"><img
+        <ul class="footer__nav-icons nav__list">
+          <li class="footer__item-icon"><a class="footer__link" href="https://github.com/AllaBoo"><img
                 src="<%=require('./images/icons/github.svg')%>" class="footer__icon" alt="Иконка GitHub"></a></li>
-          <li class="footer__item"><a class="footer__link"
+          <li class="footer__item-icon"><a class="footer__link"
               href="https://www.facebook.com/profile.php?id=100006530780129"><img
                 src="<%=require('./images/icons/facebook.svg')%>" class="footer__icon" alt="Иконка Facebook"></a></li>
         </ul>
@@ -197,7 +200,7 @@
       <a class="popup__link">Войти</a>
     </div>
   </div>
--->
+
   <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 
