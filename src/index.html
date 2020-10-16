@@ -86,16 +86,14 @@
     </div>
     <button class="button result__button">Показать ещё</button>
   </section>
-  <!--
+
   <section class="author root">
-    <div class="author__photo">
-      <picture>
-        <source srcset="<%=require('./images/author.png')%>" media="(max-width: 370px)">
-        <source srcset="<%=require('./images/author.png')%>" media="(max-width: 768px)">
-        <source srcset="<%=require('./images/author.png')%>" media="(max-width: 1920px)">
-        <img src="<%=require('./images/author.png')%>" alt="Портрет автора проекта" class="author__img">
-      </picture>
-    </div>
+    <picture class="author__picture">
+      <source media="(max-width: 370px)" srcset="<%=require('./images/author.png')%>">
+      <source media="(max-width: 769px)" srcset="<%=require('./images/author.png')%>">
+      <source srcset="<%=require('./images/author.png')%>" media="(max-width: 1920px)">
+      <img src="<%=require('./images/author.png')%>" alt="Портрет автора проекта" class="author__photo">
+    </picture>
     <div class="author__about">
       <h2 class="title">Об авторе</h2>
       <p class="author__description text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
@@ -108,6 +106,7 @@
     <i class="circle-preloader"></i>
     <p class="result__text text">Идет поиск новостей...</p>
   </section>
+  <!--
   <footer class="footer root">
     <p class="footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
     <div class="footer__container">

@@ -1,0 +1,28 @@
+.author__picture {
+  display: block;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  width: 37.5%;
+}
+
+@media (max-width: 769px) {
+  .author__picture {
+    width: 49%;
+    margin-top: 61px;
+    margin-bottom: 61px;
+  }
+}
+
+@media (max-width: 650px) {
+  .author__picture {
+    width: 70%;
+    margin: 32px auto 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .author__picture {
+    width: 100%;
+    margin: 32px auto 24px;
+  }
+}

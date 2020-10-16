@@ -13,3 +13,16 @@
   padding-bottom: 5rem;
   min-height: 17.625rem;
 }
+
+@media (max-width: 769px) {
+  .result {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+@media (max-width: 370px) {
+  .result {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
