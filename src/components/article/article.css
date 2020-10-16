@@ -13,6 +13,14 @@
 
 .article {
   width: 100%;
-  min-height: 36rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  .article {
+    margin-bottom: 10px;
+  }
 }

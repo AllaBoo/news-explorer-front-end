@@ -1,7 +1,29 @@
 .article__description {
-  margin: 20px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 268px;
+  margin: 20px 24px 0;
+  min-height: 304px;
+}
+
+@media (max-width: 1024px) {
+  .article__description {
+    margin: 16px 16px 0;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .article__description {
+    min-height: 270px;
+  }
+}
+
+@media (max-width: 750px) {
+  .article__description {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 500px) {
+  .article__description {
+    min-height: 50px;
+  }
 }

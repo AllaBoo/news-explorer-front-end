@@ -5,5 +5,14 @@
   font-size: .625rem;
   box-sizing: border-box;
   padding: 11.5px;
-  margin: 0 5px 0 0;
+  margin: 0 6px 0 0;
+  line-height: 12px;
+  width: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .article__tooltip {
+    margin: 6px 0 0;
+    padding: .5rem;
+  }
 }

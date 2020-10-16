@@ -5,4 +5,21 @@
   font-size: 1rem;
   line-height: 1.375rem;
   margin: 0;
+  text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 9;
+	-webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .article__text {
+    -webkit-line-clamp: 5;
+  }
+}
+
+@media (max-width: 500px) {
+  .article__text {
+    -webkit-line-clamp: 4;
+  }
 }

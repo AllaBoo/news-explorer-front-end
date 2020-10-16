@@ -32,15 +32,14 @@
       </form>
   </div>
   </main>
-
-  <!--
   <section class="root result">
     <h2 class="result__title title">Результаты поиска</h2>
     <div class="result__container">
       <div class="article lower-layer">
         <img src="<%=require('./images/image_08.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
-          <button class="article__icon article__icon_normal"></button>
+          <button class="article__icon"><img src="<%=require('./images/icons/save.svg')%>"
+              alt="Иконка сохранить"></button>
         </div>
         <div class="article__description">
           <p class="article__date">2 августа, 2019</p>
@@ -48,22 +47,23 @@
           <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
             складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к
             природе.</p>
-          <p class="article__source">Лента.ру</p>
         </div>
+        <p class="article__source">Лента.ру</p>
       </div>
 
       <div class="article lower-layer">
         <img src="<%=require('./images/image_04.jpg')%>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
-          <button class="article__icon article__icon_normal"></button>
+          <button class="article__icon"><img src="<%=require('./images/icons/save_marked.svg')%>"
+              alt="Иконка сохранить"></button>
         </div>
         <div class="article__description">
           <p class="article__date">2 августа, 2019</p>
           <h3 class="article__title">Лесные огоньки: история одной фотографии</h3>
           <p class="article__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы
             запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-          <p class="article__source">Медуза</p>
         </div>
+        <p class="article__source">Медуза</p>
       </div>
 
       <div class="article lower-layer">
@@ -71,7 +71,8 @@
         <div class="article__container article__container_unauthorized">
           <div class="article__icon-container">
             <p class="article__tooltip lower-layer">Войдите, чтобы сохранять статьи</p>
-            <button class="article__icon article__icon_hover"></button>
+            <button class="article__icon"><img src="<%=require('./images/icons/save_hover.svg')%>"
+                alt="Иконка сохранить"></button>
           </div>
         </div>
         <div class="article__description">
@@ -79,12 +80,13 @@
           <h3 class="article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
           <p class="article__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о
             необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-          <p class="article__source">Риа</p>
         </div>
+        <p class="article__source">Риа</p>
       </div>
     </div>
     <button class="button result__button">Показать ещё</button>
   </section>
+  <!--
   <section class="author root">
     <div class="author__photo">
       <picture>

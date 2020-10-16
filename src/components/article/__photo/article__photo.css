@@ -5,3 +5,16 @@
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+
+@media (max-width: 769px) {
+  .article__photo {
+    max-height: 150px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .article__photo {
+    max-height: 196px;
+  }
+}

@@ -6,4 +6,7 @@
   box-sizing: border-box;
   padding: 11.5px;
   margin: 0;
+  min-width: 72px;
+  text-align: center;
+  max-height: 37px;
 }

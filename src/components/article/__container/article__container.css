@@ -5,6 +5,12 @@
   top: 1.5rem;
   right: 1.5rem;
   z-index: 2;
-  max-width: 100%;
-  width: 352px;
+  width: 95%;
+}
+
+@media (max-width: 1024px) {
+  .article__container {
+    top: .5rem;
+    right: .5rem;
+  }
 }
