@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsExplorer</title>
-  <link rel="icon" href="<%=require('./images/icons/favicon.png') %>">
+  <link rel="icon" href="<%=require('./images/icons/favicon.png').default %>">
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.index.css %>">
 </head>
 
@@ -22,7 +22,7 @@
           <li class="header__item"><button class="button header__button">Авторизоваться</button></li>
         </ul>
       </nav>
-      <button class="header__icon"><img src="<%=require('./images/icons/menu.svg')%>"
+      <button class="header__icon"><img src="<%=require('./images/icons/menu.svg').default %>"
           alt="Иконка открыть меню"></button>
     </header>
     <main class="cower__container">
@@ -39,9 +39,9 @@
     <h2 class="result__title title">Результаты поиска</h2>
     <div class="result__container">
       <div class="article lower-layer">
-        <img src="<%=require('./images/image_08.jpg')%>" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
-          <button class="article__icon"><img src="<%=require('./images/icons/save.svg')%>"
+          <button class="article__icon"><img src="<%=require('./images/icons/save.svg').default %>"
               alt="Иконка сохранить"></button>
         </div>
         <div class="article__description">
@@ -55,9 +55,9 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="<%=require('./images/image_04.jpg')%>" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('./images/image_04.jpg').default %>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
-          <button class="article__icon"><img src="<%=require('./images/icons/save_marked.svg')%>"
+          <button class="article__icon"><img src="<%=require('./images/icons/save_marked.svg').default %>"
               alt="Иконка сохранить"></button>
         </div>
         <div class="article__description">
@@ -70,11 +70,11 @@
       </div>
 
       <div class="article lower-layer">
-        <img src="<%=require('./images/image_07.jpg')%>" class="article__photo" alt="Фото к статье">
+        <img src="<%=require('./images/image_07.jpg').default %>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
           <div class="article__icon-container">
             <p class="article__tooltip lower-layer">Войдите, чтобы сохранять статьи</p>
-            <button class="article__icon"><img src="<%=require('./images/icons/save_hover.svg')%>"
+            <button class="article__icon"><img src="<%=require('./images/icons/save_hover.svg').default %>"
                 alt="Иконка сохранить"></button>
           </div>
         </div>
@@ -92,9 +92,9 @@
 
   <section class="author root">
     <picture class="author__picture">
-      <source media="(max-width: 769px)" srcset="<%=require('./images/author-tablet.png')%>">
-      <source media="(max-width: 1920px)" srcset="<%=require('./images/author.png')%>">
-      <img src="<%=require('./images/author.png')%>" alt="Портрет автора проекта" class="author__photo">
+      <source media="(max-width: 769px)" srcset="<%=require('./images/author-tablet.png').default %>">
+      <source media="(max-width: 1920px)" srcset="<%=require('./images/author.png').default %>">
+      <img src="<%=require('./images/author.png').default %>" alt="Портрет автора проекта" class="author__photo">
     </picture>
     <div class="author__about">
       <h2 class="title">Об авторе</h2>
@@ -125,17 +125,19 @@
       <nav class="nav">
         <ul class="footer__nav-icons nav__list">
           <li class="footer__item-icon"><a class="footer__link" href="https://github.com/AllaBoo" target="_blank"><img
-                src="<%=require('./images/icons/github.svg')%>" class="footer__icon" alt="Иконка GitHub"></a></li>
+                src="<%=require('./images/icons/github.svg').default %>" class="footer__icon" alt="Иконка GitHub"></a>
+          </li>
           <li class="footer__item-icon"><a class="footer__link"
               href="https://www.facebook.com/profile.php?id=100006530780129" target="_blank"><img
-                src="<%=require('./images/icons/facebook.svg')%>" class="footer__icon" alt="Иконка Facebook"></a></li>
+                src="<%=require('./images/icons/facebook.svg').default %>" class="footer__icon"
+                alt="Иконка Facebook"></a></li>
         </ul>
       </nav>
     </div>
   </footer>
 
   <section class="root result">
-    <img src="<%=require('./images/icons/not-found_v1.svg')%>" class="result__img"
+    <img src="<%=require('./images/icons/not-found_v1.svg').default %>" class="result__img"
       alt="Пиктограмма нет результатов поиска">
     <p class="result__not-found-title">Ничего не найдено</p>
     <p class="text result__not-found-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
@@ -143,7 +145,7 @@
 
   <div class="popup">
     <div class="popup__content">
-      <img src="<%=require('./images/icons/close.svg')%>" alt="Иконка закрытия окна" class="popup__close">
+      <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Вход</h3>
       <form class="popup__form">
         <div class="popup__input-container">
@@ -167,7 +169,7 @@
 
   <div class="popup">
     <div class="popup__content">
-      <img src="<%=require('./images/icons/close.svg')%>" alt="Иконка закрытия окна" class="popup__close">
+      <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form">
         <div class="popup__input-container">
@@ -198,7 +200,7 @@
 
   <div class="popup">
     <div class="popup__content">
-      <img src="<%=require('./images/icons/close.svg')%>" alt="Иконка закрытия окна" class="popup__close">
+      <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
       <a class="popup__link">Войти</a>
     </div>

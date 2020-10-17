@@ -1,1 +1,1 @@
-import '../components/index.css';
+import '../components/articles.css';

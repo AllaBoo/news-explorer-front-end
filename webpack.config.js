@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: './scripts/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -28,7 +28,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+          (isDev ? { loader: 'style-loader' } : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          }),
           {
             loader: 'css-loader',
             options: {
@@ -44,13 +49,37 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|svg|webp)$/,
-        use: 'file-loader?name=./images/[name].[ext]&esModule=false',
-      },
-    ],
+        use: [
+          'file-loader?name=./images/[name].[ext]',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              webp: {
+                quality: 75
+              }
+            }
+          },
+        ]
+      }
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
+      filename: 'styles/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
@@ -63,13 +92,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/index.html',
-      filename: 'index.html',
+      filename: './index.html',
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/pages/articles.html',
-      filename: 'articles.html',
+      template: './src/articles.html',
+      filename: './articles.html',
       chunks: ['articles'],
     }),
     new WebpackMd5Hash(),

@@ -4,13 +4,12 @@
 @import url(./nav/nav.css);
 @import url(./button/button.css);
 @import url(./header/header.css);
-@import url(./cower/cower.css);
-@import url(./author/author.css);
 @import url(./title/title.css);
 @import url(./result/result.css);
-@import url(./circle-preloader/circle-preloader.css);
 @import url(./article/article.css);
 @import url(./text/text.css);
+@import url(./greeting/greeting.css);
+@import url(./span/span.css);
 @import url(./popup/popup.css);
 @import url(./popup/_opened/popup_opened.css);
 @import url(./footer/footer.css);
