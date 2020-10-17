@@ -1,4 +1,11 @@
 .header__icon {
-  height: 1rem;
-  margin-left: .5rem;
+  display: none;
+}
+
+@media (max-width: 750px) {
+  .header__icon  {
+    display: block;
+    background-color: transparent;
+    border: none;
+  }
 }

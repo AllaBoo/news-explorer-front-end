@@ -1,5 +1,5 @@
 .cower__input {
-  font-family: Roboto;
+  font-family: Roboto, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
@@ -8,6 +8,12 @@
   border: none;
   margin: 21px 1.5rem;
   width: 62%;
+}
+
+@media (max-width: 769px) {
+  .cower__input {
+    margin: 17px 24px;
+  }
 }
 
 @media (max-width: 500px) {

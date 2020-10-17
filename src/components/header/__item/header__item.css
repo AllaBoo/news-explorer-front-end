@@ -2,3 +2,10 @@
   list-style-type: none;
   margin-left: 2rem;
 }
+
+@media (max-width: 750px) {
+  .header__item  {
+    margin-left: 0;
+    width: 100%;
+  }
+}

@@ -3,7 +3,7 @@
   border: 1px solid rgb(209, 210, 214);
   border-style: outset;
   box-sizing: border-box;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(9px);
   border-radius: 100px;
   display: flex;
   justify-content: space-between;

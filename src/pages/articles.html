@@ -13,13 +13,13 @@
 <body class="body">
   <header class="header header_black root">
     <p class=" header__logo">NewsExplorer</p>
-    <nav class="nav">
+    <nav class="nav header__menu">
       <ul class="header__nav nav__list">
         <li class="header__item"><a class="header__link" href="https://news-explorer-praktikum.ru">Главная</a></li>
         <li class="header__item"><a class="header__link header__link_active"
             href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
-        <li class="header__item"><button class="header__button button">Грета <img class="header__icon"
-              src="<%=require('../images/icons/exit.svg')%>" alt="Иконка выхода (разлогиниться)"> </button></li>
+        <li class="header__item"><button class="header__button button">Грета <img class="header__button-icon"
+              src="<%=require('../images/icons/exit.svg')%>" alt="Иконка выхода (разлогиниться)"></button></li>
       </ul>
     </nav>
   </header>
@@ -125,18 +125,20 @@
     <div class="footer__container">
       <nav class="nav">
         <ul class="footer__nav-text nav__list">
-          <li class="footer__item-text"><a class="footer__link" href="https://news-explorer-praktikum.ru">Главная</a>
+          <li class="footer__item-text"><a class="footer__link" href="https://news-explorer-praktikum.ru"
+              target="_blank">Главная</a>
           </li>
-          <li class="footer__item-text"><a class="footer__link" href="https://praktikum.yandex.ru">Яндекс.Практикум</a>
+          <li class="footer__item-text"><a class="footer__link" href="https://praktikum.yandex.ru"
+              target="_blank">Яндекс.Практикум</a>
           </li>
         </ul>
       </nav>
       <nav class="nav">
         <ul class="footer__nav-icons nav__list">
-          <li class="footer__item-icon"><a class="footer__link" href="https://github.com/AllaBoo"><img
+          <li class="footer__item-icon"><a class="footer__link" href="https://github.com/AllaBoo" target="_blank"><img
                 src="<%=require('../images/icons/github.svg')%>" class="footer__icon" alt="Иконка GitHub"></a></li>
           <li class="footer__item-icon"><a class="footer__link"
-              href="https://www.facebook.com/profile.php?id=100006530780129"><img
+              href="https://www.facebook.com/profile.php?id=100006530780129" target="_blank"><img
                 src="<%=require('../images/icons/facebook.svg')%>" class="footer__icon" alt="Иконка Facebook"></a></li>
         </ul>
       </nav>
