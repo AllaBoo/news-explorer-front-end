@@ -16,11 +16,7 @@ HTML5, CSS3, GIT, WebPack.
 объединить front-end c [back-end ](https://github.com/AllaBoo/news-explorer-api.git) и API при помощи JS, реализовав полный функционал проекта.
 
 ## Инструкции по запуску:
-* Склонировать репозиторий с github:
-```sh git clone https://github.com/AllaBoo/news-explorer-front-end.git```
-* Установить зависимости при помощи npm:
-```sh npm i```
-* Запустить в development режиме:
-```sh npm run dev```
-* Запустить сборку production-билда:
-```sh npm run build```
+* Склонировать репозиторий с github: ```git clone https://github.com/AllaBoo/news-explorer-front-end.git```
+* Установить зависимости при помощи npm: ```npm i```
+* Запустить в development режиме: ```npm run dev```
+* Запустить сборку production-билда: ```npm run build```
