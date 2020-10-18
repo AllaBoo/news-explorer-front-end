@@ -17,11 +17,22 @@
       <ul class="header__nav nav__list">
         <li class="header__item"><a class="header__link" href="https://news-explorer-praktikum.ru">Главная</a></li>
         <li class="header__item"><a class="header__link header__link_active"
-            href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
+            href="https://news-explorer-praktikum.ru/articles.html" id="active-link">Сохранённые статьи</a></li>
         <li class="header__item"><button class="header__button button">Грета <img class="header__button-icon"
               src="<%=require('./images/icons/exit.svg').default %>" alt="Иконка выхода (разлогиниться)"></button></li>
       </ul>
     </nav>
+    <button class="header__icon"><img src="<%=require('./images/icons/menu-black.svg').default%>"
+        alt="Иконка открыть меню" id="first-icon">
+      <template id="icon-menu">
+        <img src="<%=require('./images/icons/menu-black.svg').default %>" alt="Иконка открыть меню" class="header__icon"
+          id="open">
+      </template>
+      <template id="icon-close">
+        <img src="<%=require('./images/icons/close-small.svg').default %>" alt="Иконка закрыть" class="header__icon"
+          id="close">
+      </template>
+    </button>
   </header>
   <section class="greeting root">
     <p class="greeting__subtitle">Сохранённые статьи</p>

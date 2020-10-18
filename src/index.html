@@ -17,13 +17,20 @@
       <nav class="nav header__menu">
         <ul class="header__nav nav__list">
           <li class="header__item"><a class="header__link" href="https://news-explorer-praktikum.ru">Главная</a></li>
-          <li class="header__item"><a class="header__link"
-              href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
           <li class="header__item"><button class="button header__button">Авторизоваться</button></li>
         </ul>
       </nav>
-      <button class="header__icon"><img src="<%=require('./images/icons/menu.svg').default %>"
-          alt="Иконка открыть меню"></button>
+      <button class="header__icon"><img src="<%=require('./images/icons/menu.svg').default%>" alt="Иконка открыть меню"
+          id="first-icon">
+        <template id="icon-menu">
+          <img src="<%=require('./images/icons/menu.svg').default %>" alt="Иконка открыть меню" class="header__icon"
+            id="open">
+        </template>
+        <template id="icon-close">
+          <img src="<%=require('./images/icons/close-small.svg').default %>" alt="Иконка закрыть" class="header__icon"
+            id="close">
+        </template>
+      </button>
     </header>
     <main class="cower__container">
       <h1 class="cower__title">Что творится в мире?</h1>
@@ -143,7 +150,7 @@
     <p class="text result__not-found-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
   </section>
 
-  <div class="popup">
+  <div id="loginPopup" class="popup">
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Вход</h3>
@@ -162,12 +169,12 @@
       </form>
       <div class="popup__text-container">
         <p class="popup__text">или</p>
-        <a class="popup__link">Зарегистрироваться</a>
+        <a class="popup__link" id="registerButton">Зарегистрироваться</a>
       </div>
     </div>
   </div>
 
-  <div class="popup">
+  <div class="popup" id="registerPopup">
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
@@ -193,7 +200,7 @@
       </form>
       <div class="popup__text-container">
         <p class="popup__text">или</p>
-        <a class="popup__link">Войти</a>
+        <a class="popup__link" id="loginButton">Войти</a>
       </div>
     </div>
   </div>

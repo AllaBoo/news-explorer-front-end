@@ -6,7 +6,6 @@
   box-sizing: border-box;
   padding: 11.5px;
   margin: 0 6px 0 0;
-  line-height: 12px;
   width: fit-content;
 }
 
@@ -18,8 +17,8 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .article__tooltip {
-    font-size: .625rem;
+    display: none;
   }
 }

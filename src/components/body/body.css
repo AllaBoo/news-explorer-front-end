@@ -10,3 +10,5 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
+
+@import url(./_overlay/body_overlay.css);
