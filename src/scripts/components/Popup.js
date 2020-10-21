@@ -4,14 +4,14 @@ export class Popup {
     this.close = this.close.bind(this);
   }
 
-  close() {
-    this.popup.closest('.popup').classList.remove('popup_opened');
-  }
-
   open() {
     this.popup.classList.add('popup_opened');
     this.setListeners();
     document.querySelector('.body').append(this.popup);
+  }
+
+  close() {
+    this.popup.closest('.popup').classList.remove('popup_opened');
   }
 
   setListeners() {
