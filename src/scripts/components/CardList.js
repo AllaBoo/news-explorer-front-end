@@ -3,6 +3,7 @@ export class CardList {
     this.resultContainer = resultContainer;
     this.cardTemplate = cardTemplate;
     this.createCard = createCard;
+    this.articlesArr = [];
   };
 
   addCard = (data) => {
@@ -10,8 +11,18 @@ export class CardList {
   }
 
   render(articles) {
-    articles.forEach(data => {
-      this.addCard(data, this.popup)
+    this.articlesArr = articles;
+    const initArr = articles.slice(0, 3);
+    initArr.forEach(data => {
+      this.addCard(data)
+    });
+
+  }
+
+  renderMore() {
+    const newArr = this.articlesArr.splice(4, 3);
+    newArr.forEach(data => {
+      this.addCard(data)
     });
   }
 }

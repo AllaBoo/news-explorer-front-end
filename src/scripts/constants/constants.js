@@ -13,5 +13,7 @@ export const resultContainer = document.querySelector('.result__container');
 export const resultSection = document.querySelector('.result');
 export const resultNotFound = document.querySelector('#not-found');
 export const resultLoading = document.querySelector('#loader');
+export const resultMoreButton = document.querySelector('.result__button');
+export const resultError = document.querySelector('#result-error');
 export const resultTitle = document.querySelector('.result__title');
 export const cardTemplate = document.querySelector('#card__template').content.querySelector('.article');

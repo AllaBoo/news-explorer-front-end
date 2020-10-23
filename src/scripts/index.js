@@ -1,5 +1,5 @@
 import '../styles/index.css';
-import { loginPopup, registerPopup, messagePopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle } from './constants/constants'
+import { loginPopup, registerPopup, messagePopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError } from './constants/constants'
 import { Popup } from './components/Popup';
 import { NewsApi } from './api/NewsApi';
 
@@ -22,7 +22,7 @@ loginButton.addEventListener('click', () => {
   popupRegister.close();
   popupLogin.open();
 });
-
+const nextArr = [];
 searchForm.addEventListener('submit', () => {
   event.preventDefault();
   while (resultContainer.firstChild) {
@@ -30,8 +30,11 @@ searchForm.addEventListener('submit', () => {
   };
   resultSection.classList.remove('hidden');
   resultTitle.classList.add('hidden');
+  resultMoreButton.classList.add('hidden');
   resultLoading.classList.remove('hidden');
   resultNotFound.classList.add('hidden');
+  resultError.classList.add('hidden');
+
   newsApi.getNews(searchWord.value)
     .then((res) => {
       if (res.articles.length === 0) {
@@ -39,13 +42,16 @@ searchForm.addEventListener('submit', () => {
       } else {
         cardList.render(res.articles);
         resultTitle.classList.remove('hidden');
+        resultMoreButton.classList.remove('hidden');
       }
     })
     .then(() => {
       resultContainer.classList.remove('hidden');
       resultLoading.classList.add('hidden');
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      resultError.classList.remove('hidden');
     })
 });
+
+document.querySelector('.result__button').addEventListener('click', () => cardList.renderMore());
