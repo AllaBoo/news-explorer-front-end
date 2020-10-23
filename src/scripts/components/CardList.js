@@ -1,9 +1,10 @@
 export class CardList {
-  constructor(resultContainer, cardTemplate, createCard, api) {
+  constructor(resultContainer, cardTemplate, createCard, resultMoreButton) {
     this.resultContainer = resultContainer;
     this.cardTemplate = cardTemplate;
     this.createCard = createCard;
     this.articlesArr = [];
+    this.resultMoreButton = resultMoreButton;
   };
 
   addCard = (data) => {
@@ -16,13 +17,15 @@ export class CardList {
     initArr.forEach(data => {
       this.addCard(data)
     });
-
   }
 
   renderMore() {
-    const newArr = this.articlesArr.splice(4, 3);
+    const newArr = this.articlesArr.splice(4, 3); //возвращает массив из удалённых элементов
     newArr.forEach(data => {
       this.addCard(data)
     });
+    if (this.articlesArr.length <= 4) {
+      this.resultMoreButton.classList.add('hidden');
+    }
   }
 }

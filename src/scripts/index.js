@@ -11,7 +11,7 @@ import { CardList } from './components/CardList';
 const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard).addCard(...arg);
-const cardList = new CardList(resultContainer, cardTemplate, createCard);
+const cardList = new CardList(resultContainer, cardTemplate, createCard, resultMoreButton);
 
 loginButtonHeader.addEventListener('click', () => popupLogin.open());
 registerButton.addEventListener('click', () => {
