@@ -8,4 +8,10 @@ export const messagePopup = document.querySelector('#messagePopup');
 
 export const searchForm = document.querySelector('.cower__search');
 export const searchWord = document.querySelector('.cower__input');
+
 export const resultContainer = document.querySelector('.result__container');
+export const resultSection = document.querySelector('.result');
+export const resultNotFound = document.querySelector('#not-found');
+export const resultLoading = document.querySelector('#loader');
+export const resultTitle = document.querySelector('.result__title');
+export const cardTemplate = document.querySelector('#card__template').content.querySelector('.article');

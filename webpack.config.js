@@ -22,8 +22,11 @@ module.exports = {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
+          options: {
+            plugins: ['transform-class-properties']
+          }
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,

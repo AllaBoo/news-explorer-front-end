@@ -45,59 +45,42 @@
       </form>
     </main>
   </div>
-  <section class="root result">
-    <h2 class="result__title title">Результаты поиска</h2>
-    <div class="result__container">
+  <section class="root result hidden">
+    <div id="not-found" class="hidden">
+      <img src="<%=require('./images/icons/not-found_v1.svg').default %>" class="result__img"
+        alt="Пиктограмма нет результатов поиска">
+      <p class="result__not-found-title">Ничего не найдено</p>
+      <p class="text result__not-found-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
+    </div>
+
+    <div id="loader" class="hidden">
+      <i class="circle-preloader"></i>
+      <p class="result__text text">Идет поиск новостей...</p>
+    </div>
+    <h2 class="result__title title hidden">Результаты поиска</h2>
+    <div class="result__container hidden">
+
+    </div>
+    <template id="card__template">
       <div class="article lower-layer">
-        <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье">
         <div class="article__container article__container_unauthorized">
           <button class="article__icon"><img src="<%=require('./images/icons/save.svg').default %>"
               alt="Иконка сохранить"></button>
         </div>
-        <div class="article__description">
-          <p class="article__date">2 августа, 2019</p>
-          <h3 class="article__title">Национальное достояние – парки</h3>
-          <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-            складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к
-            природе.</p>
-        </div>
-        <p class="article__source">Лента.ру</p>
-      </div>
-
-      <div class="article lower-layer">
-        <img src="<%=require('./images/image_04.jpg').default %>" class="article__photo" alt="Фото к статье">
-        <div class="article__container article__container_unauthorized">
-          <button class="article__icon"><img src="<%=require('./images/icons/save_marked.svg').default %>"
-              alt="Иконка сохранить"></button>
-        </div>
-        <div class="article__description">
-          <p class="article__date">2 августа, 2019</p>
-          <h3 class="article__title">Лесные огоньки: история одной фотографии</h3>
-          <p class="article__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы
-            запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-        </div>
-        <p class="article__source">Медуза</p>
-      </div>
-
-      <div class="article lower-layer">
-        <img src="<%=require('./images/image_07.jpg').default %>" class="article__photo" alt="Фото к статье">
-        <div class="article__container article__container_unauthorized">
-          <div class="article__icon-container">
-            <p class="article__tooltip lower-layer">Войдите, чтобы сохранять статьи</p>
-            <button class="article__icon"><img src="<%=require('./images/icons/save_hover.svg').default %>"
-                alt="Иконка сохранить"></button>
+        <a href="" target="_blank" class="article__link">
+          <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье">
+          <div class="article__description">
+            <p class="article__date">2 августа, 2019</p>
+            <h3 class="article__title">Национальное достояние – парки</h3>
+            <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+              складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться
+              к природе.</p>
           </div>
-        </div>
-        <div class="article__description">
-          <p class="article__date">2 августа, 2019</p>
-          <h3 class="article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-          <p class="article__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о
-            необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-        </div>
-        <p class="article__source">Риа</p>
+          <p class="article__source">Лента.ру</p>
+        </a>
       </div>
-    </div>
-    <button class="button result__button">Показать ещё</button>
+    </template>
+    <button class="button result__button hidden">Показать ещё</button>
   </section>
 
   <section class="author root">
@@ -113,10 +96,6 @@
       <p class="author__description text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут
         научились, и чем можете помочь потенциальным заказчикам.</p>
     </div>
-  </section>
-  <section class="root result">
-    <i class="circle-preloader"></i>
-    <p class="result__text text">Идет поиск новостей...</p>
   </section>
 
   <footer class="footer root">
@@ -146,12 +125,7 @@
     </div>
   </footer>
 
-  <section class="root result">
-    <img src="<%=require('./images/icons/not-found_v1.svg').default %>" class="result__img"
-      alt="Пиктограмма нет результатов поиска">
-    <p class="result__not-found-title">Ничего не найдено</p>
-    <p class="text result__not-found-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
-  </section>
+
 
   <div id="loginPopup" class="popup">
     <div class="popup__content">
