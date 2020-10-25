@@ -9,8 +9,5 @@
   text-align: center;
   box-shadow: none;
   border: none;
-}
-
-.button:hover {
   cursor: pointer;
 }

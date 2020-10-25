@@ -8,10 +8,12 @@
   display: block;
   padding-bottom: 27px;
   color: inherit;
+  cursor: pointer;
 }
 
 .header__link:visited {
   color: inherit;
+  cursor: pointer;
 }
 
 
