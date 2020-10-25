@@ -10,6 +10,15 @@ export default class Popup {
     document.querySelector('.body').append(this.popup);
   }
 
+  clearForm() {
+    this.popup.querySelectorAll('.popup__error-message').forEach((inputElement) => {
+      inputElement.textContent = '';
+    });
+    this.popup.querySelectorAll('.popup__input').forEach((inputElement) => {
+      inputElement.value = '';
+    });
+  }
+
   close() {
     this.popup.closest('.popup').classList.remove('popup_opened');
   }

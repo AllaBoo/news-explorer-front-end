@@ -13,19 +13,9 @@ export class PopupRegister extends Popup {
 
   open() {
     super.open();
+    super.clearForm();
     this.setSubmitListeners();
-    this.popup.querySelectorAll('.popup__error-message').forEach((inputElement) => {
-      inputElement.textContent = '';
-    });
     //this.formValidator(this.form).setEventListeners();
-  }
-
-  close() {
-    const spans = Array.from(this.popup.querySelectorAll('span'))
-    spans.forEach((span) => {
-      span.textContent = '';
-    });
-    super.close();
   }
 
   register = (event) => {
@@ -38,8 +28,8 @@ export class PopupRegister extends Popup {
     //this.formValidator(this.form).checkFormValid();
     this.api.signUp(newUserInfo)
       .then(() => {
-        this.messagePopup.classList.add('popup_opened');
-        this.close();
+        super.close();
+        this.messagePopup.open();
       })
       .catch((err) => {
         this.popup.querySelector('.popup__error-message_centred').textContent = err.message;

@@ -1,15 +1,17 @@
 import '../styles/index.css';
-import { loginPopup, registerPopup, messagePopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton } from './constants/constants'
+import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton, articleLink } from './constants/constants'
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
+import { PopupMessage } from './components/PopupMessage';
 import { NewsApi } from './api/NewsApi';
 import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
 import { CardList } from './components/CardList';
 
 const mainApi = new MainApi();
-const popupRegister = new PopupRegister(registerPopup, mainApi, messagePopup);
-const popupLogin = new PopupLogin(loginPopup);
+const popupMessage = new PopupMessage(messagePopup);
+const popupRegister = new PopupRegister(registerPopup, mainApi, popupMessage);
+const popupLogin = new PopupLogin(loginPopup, mainApi, articleLink);
 const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard).addCard(...arg);
@@ -25,9 +27,10 @@ loginButton.addEventListener('click', () => {
   popupLogin.open();
 });
 messagePopupLoginButton.addEventListener('click', () => {
-  messagePopup.classList.remove('popup_opened');
+  popupMessage.close();
   popupLogin.open();
 });
+
 searchForm.addEventListener('submit', () => {
   event.preventDefault();
   while (resultContainer.firstChild) {
