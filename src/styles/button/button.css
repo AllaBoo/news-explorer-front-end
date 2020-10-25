@@ -12,5 +12,5 @@
 }
 
 .button:hover {
-  cursor: poInter, Arial, sans-serif;
+  cursor: pointer;
 }

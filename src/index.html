@@ -133,7 +133,7 @@
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Вход</h3>
-      <form class="popup__form">
+      <form class="popup__form" id="login-form">
         <div class="popup__input-container">
           <p class="popup__input-name">Email</p>
           <input type="email" minlength="2" class="popup__input" placeholder="Введите почту" required>
@@ -157,25 +157,25 @@
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
-      <form class="popup__form">
+      <form class="popup__form" id="register-form">
         <div class="popup__input-container">
           <p class="popup__input-name">Email</p>
-          <input type="email" minlength="2" class="popup__input" placeholder="Введите почту" required>
+          <input id="user-mail" type="email" minlength="2" class="popup__input" placeholder="Введите почту" required>
           <span class="popup__error-message">Неправильный формат email</span>
         </div>
         <div class="popup__input-container">
           <p class="popup__input-name">Пароль</p>
-          <input type="text" minlength="2" class="popup__input" placeholder="Введите пароль" required>
+          <input id="user-password" type="text" minlength="2" class="popup__input" placeholder="Введите пароль"
+            required>
           <span class="popup__error-message"></span>
         </div>
         <div class="popup__input-container">
           <p class="popup__input-name">Имя</p>
-          <input type="text" minlength="2" class="popup__input" placeholder="Введите пароль" required>
+          <input id="user-name" type="text" minlength="2" class="popup__input" placeholder="Введите пароль" required>
           <span class="popup__error-message"></span>
         </div>
         <p class="popup__error-message popup__error-message_centred">Такой пользователь уже есть</p>
-        <button type="submit" class="popup__button button popup__button_active"
-          disabled="disabled">Зарегистрироваться</button>
+        <button type="submit" class="popup__button button popup__button_active">Зарегистрироваться</button>
       </form>
       <div class="popup__text-container">
         <p class="popup__text">или</p>
@@ -188,11 +188,11 @@
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-      <a class="popup__link" id="loginButton">Войти</a>
+      <a class="popup__link" id="messagePopupLoginButton">Войти</a>
     </div>
   </div>
 
-  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+  <script src=" <%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 
 </html>

@@ -1,13 +1,15 @@
 import '../styles/index.css';
-import { loginPopup, registerPopup, messagePopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError } from './constants/constants'
-import { Popup } from './components/Popup';
+import { loginPopup, registerPopup, messagePopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton } from './constants/constants'
+import { PopupLogin } from './components/PopupLogin';
+import { PopupRegister } from './components/PopupRegister';
 import { NewsApi } from './api/NewsApi';
-
-const popupRegister = new Popup(registerPopup);
-const popupLogin = new Popup(loginPopup);
-const popupMessage = new Popup(messagePopup);
+import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
 import { CardList } from './components/CardList';
+
+const mainApi = new MainApi();
+const popupRegister = new PopupRegister(registerPopup, mainApi, messagePopup);
+const popupLogin = new PopupLogin(loginPopup);
 const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard).addCard(...arg);
@@ -22,16 +24,19 @@ loginButton.addEventListener('click', () => {
   popupRegister.close();
   popupLogin.open();
 });
-const nextArr = [];
+messagePopupLoginButton.addEventListener('click', () => {
+  messagePopup.classList.remove('popup_opened');
+  popupLogin.open();
+});
 searchForm.addEventListener('submit', () => {
   event.preventDefault();
   while (resultContainer.firstChild) {
     resultContainer.removeChild(resultContainer.firstChild);
   };
   resultSection.classList.remove('hidden');
+  resultLoading.classList.remove('hidden');
   resultTitle.classList.add('hidden');
   resultMoreButton.classList.add('hidden');
-  resultLoading.classList.remove('hidden');
   resultNotFound.classList.add('hidden');
   resultError.classList.add('hidden');
 
@@ -54,4 +59,5 @@ searchForm.addEventListener('submit', () => {
     })
 });
 
-document.querySelector('.result__button').addEventListener('click', () => cardList.renderMore());
+resultMoreButton.addEventListener('click', () => cardList.renderMore());
+
