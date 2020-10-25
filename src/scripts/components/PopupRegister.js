@@ -27,8 +27,7 @@ export class PopupRegister extends Popup {
     };
     //this.formValidator(this.form).checkFormValid();
     this.api.signUp(newUserInfo)
-      .then((res) => {
-        localStorage.setItem('token', res.token);
+      .then(() => {
         super.close();
         this.messagePopup.open();
       })

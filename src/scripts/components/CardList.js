@@ -20,7 +20,7 @@ export class CardList {
   }
 
   renderMore() {
-    const newArr = this.articlesArr.splice(4, 3); //возвращает массив из удалённых элементов
+    let newArr = this.articlesArr.splice(4, 3); //возвращает массив из удалённых элементов
     newArr.forEach(data => {
       this.addCard(data)
     });

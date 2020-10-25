@@ -22,11 +22,10 @@ export class PopupLogin extends Popup {
       email: this.mail.value,
       password: this.password.value,
     };
-    console.log('данные из попапа');
-    console.log(loginData);
     //this.formValidator(this.form).checkFormValid();
     this.api.signIn(loginData)
-      .then(() => {
+      .then((res) => {
+        localStorage.setItem('token', res.token);
         super.close();
         this.articleLink.classList.remove('hidden');
       })
