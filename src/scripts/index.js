@@ -1,17 +1,19 @@
 import '../styles/index.css';
-import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton, articleLink } from './constants/constants'
+import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton } from './constants/constants'
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
 import { PopupMessage } from './components/PopupMessage';
+import { Header } from './components/Header';
 import { NewsApi } from './api/NewsApi';
 import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
 import { CardList } from './components/CardList';
 
 const mainApi = new MainApi();
+const header = new Header(mainApi);
 const popupMessage = new PopupMessage(messagePopup);
 const popupRegister = new PopupRegister(registerPopup, mainApi, popupMessage);
-const popupLogin = new PopupLogin(loginPopup, mainApi, articleLink);
+const popupLogin = new PopupLogin(loginPopup, mainApi, header);
 const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard).addCard(...arg);

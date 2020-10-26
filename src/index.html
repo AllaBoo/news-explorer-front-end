@@ -23,7 +23,12 @@
               href="https://news-explorer-praktikum.ru">Главная</a></li>
           <li class="header__item"><a class="header__link hidden"
               href="https://news-explorer-praktikum.ru/articles.html" id="article-link">Сохранённые статьи</a></li>
-          <li class="header__item"><button class="button header__button">Авторизоваться</button></li>
+          <li class="header__item"><button class="header__button button hidden" id="quit-button">
+              <p class="header__text" id="greeting">Грета</p> <img class="header__button-icon"
+                src="<%=require('./images/icons/exit.svg').default %>" alt="Иконка выхода (разлогиниться)">
+            </button></li>
+          <li class="header__item"><button class="button header__button"
+              id="login-button-header">Авторизоваться</button></li>
         </ul>
       </nav>
       <button class="header__icon"><img src="<%=require('./images/icons/menu.svg').default%>" alt="Иконка открыть меню"

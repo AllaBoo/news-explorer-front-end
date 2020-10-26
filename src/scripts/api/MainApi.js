@@ -26,8 +26,6 @@ export class MainApi {
   }
 
   signIn = (loginData) => {
-    console.log('данные из api');
-    console.log(loginData);
     return fetch(`http://localhost:3000/signin`, {
       method: 'POST',
       headers: {
@@ -46,6 +44,23 @@ export class MainApi {
         const json = res.json();
         return json.then(Promise.reject.bind(Promise))
       })
+      .catch((err) => { throw err; })
+  }
+
+  getUser() {
+    return fetch(`http://localhost:3000/users/me`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      const json = res.json();
+      return json.then(Promise.reject.bind(Promise))
+    })
       .catch((err) => { throw err; })
   }
 

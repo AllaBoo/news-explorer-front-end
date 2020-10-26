@@ -1,12 +1,12 @@
 import Popup from './Popup';
 export class PopupLogin extends Popup {
-  constructor(popupName, api, articleLink) {
+  constructor(popupName, api, header) {
     super(popupName);
     this.form = this.popup.querySelector('#login-form');
     this.mail = this.form.querySelector('#mail');
     this.password = this.form.querySelector('#password');
     this.api = api;
-    this.articleLink = articleLink;
+    this.header = header;
   }
 
   open() {
@@ -27,7 +27,7 @@ export class PopupLogin extends Popup {
       .then((res) => {
         localStorage.setItem('token', res.token);
         super.close();
-        this.articleLink.classList.remove('hidden');
+        this.header.render();
       })
       .catch((err) => {
         this.popup.querySelector('.popup__error-message_centred').textContent = err.message;
