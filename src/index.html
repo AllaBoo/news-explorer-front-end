@@ -19,21 +19,21 @@
       <p class="header__logo">NewsExplorer</p>
       <nav class="nav header__menu">
         <ul class="header__nav nav__list">
-          <li class="header__item"><a class="header__link header__link_active"
+          <li class="header__item" id="main-button"><a class="header__link header__link_active"
               href="https://news-explorer-praktikum.ru">Главная</a></li>
-          <li class="header__item"><a class="header__link hidden"
-              href="https://news-explorer-praktikum.ru/articles.html" id="article-link">Сохранённые статьи</a></li>
-          <li class="header__item"><button class="header__button button hidden" id="quit-button">
+          <li class="header__item hidden" id="article-link"><a class="header__link"
+              href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
+          <li class="header__item hidden" id="quit-button"><button class="header__button button">
               <p class="header__text" id="greeting">Грета</p> <img class="header__button-icon"
                 src="<%=require('./images/icons/exit.svg').default %>" alt="Иконка выхода (разлогиниться)">
             </button></li>
-          <li class="header__item"><button class="button header__button"
-              id="login-button-header">Авторизоваться</button></li>
+          <li class="header__item" id="login-button-header"><button
+              class="button header__button">Авторизоваться</button></li>
         </ul>
       </nav>
       <button class="header__icon"><img src="<%=require('./images/icons/menu.svg').default%>" alt="Иконка открыть меню"
           id="first-icon">
-        <template id="icon-menu">
+        <template id="icon-open">
           <img src="<%=require('./images/icons/menu.svg').default %>" alt="Иконка открыть меню" class="header__icon"
             id="open">
         </template>

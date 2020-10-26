@@ -21,3 +21,5 @@ export const resultMoreButton = document.querySelector('.result__button');
 export const resultError = document.querySelector('#result-error');
 export const resultTitle = document.querySelector('.result__title');
 export const cardTemplate = document.querySelector('#card__template').content.querySelector('.article');
+
+export const headerIcon = document.querySelector('.header__icon');

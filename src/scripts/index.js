@@ -1,5 +1,5 @@
 import '../styles/index.css';
-import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton } from './constants/constants'
+import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton, headerIcon } from './constants/constants'
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
 import { PopupMessage } from './components/PopupMessage';
@@ -19,7 +19,10 @@ const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard).addCard(...arg);
 const cardList = new CardList(resultContainer, cardTemplate, createCard, resultMoreButton);
 
-loginButtonHeader.addEventListener('click', () => popupLogin.open());
+loginButtonHeader.addEventListener('click', () => {
+  header.closeMenu();
+  popupLogin.open();
+});
 registerButton.addEventListener('click', () => {
   popupLogin.close();
   popupRegister.open();
@@ -66,3 +69,5 @@ searchForm.addEventListener('submit', () => {
 
 resultMoreButton.addEventListener('click', () => cardList.renderMore());
 
+headerIcon.addEventListener('click', () => header.openMenu());
+header.render();
