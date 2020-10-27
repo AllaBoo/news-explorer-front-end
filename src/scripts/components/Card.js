@@ -1,3 +1,4 @@
+import { searchWord } from '../constants/constants'
 export class Card {
   constructor(data, cardTemplate, api) {
     this.data = data;
@@ -44,20 +45,36 @@ export class Card {
   }
 
   markIcon() {
-    const articleIcon = this.card.querySelector('.article__icon');
-    this.card.querySelector('.article__tooltip').classList.add('hidden');
-    while (articleIcon.firstChild) {
-      articleIcon.removeChild(articleIcon.firstChild);
-    };
-    const saveMark = document.querySelector('#save-marked').content.querySelector('img').cloneNode(true);
-    articleIcon.append(saveMark);
-    this.removeListeners();
+    this.api.getUser()
+      .then((res) => {
+        if (res != undefined) {
+          const articleIcon = this.card.querySelector('.article__icon');
+          this.card.querySelector('.article__tooltip').classList.add('hidden');
+          while (articleIcon.firstChild) {
+            articleIcon.removeChild(articleIcon.firstChild);
+          };
+          const saveMark = document.querySelector('#save-marked').content.querySelector('img').cloneNode(true);
+          articleIcon.append(saveMark);
+          this.removeListeners();
+          const articleData = {
+            keyword: searchWord.value,
+            title: this.data.title,
+            text: this.data.description,
+            date: this.data.publishedAt,
+            source: this.data.source.name,
+            link: this.data.url,
+            image: this.data.urlToImage
+          };
+          this.api.saveArticle(articleData);
+        }
+      })
   }
 
   setListeners() {
     const articleIcon = this.card.querySelector('.article__icon');
     articleIcon.addEventListener('mouseover', this.hoverIcon);
     articleIcon.addEventListener('mouseout', this.unHoverIcon);
+    this.card.querySelector('.article__icon-img').addEventListener('click', this.markIcon);
     articleIcon.addEventListener('click', this.markIcon);
   }
 
