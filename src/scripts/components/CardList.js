@@ -1,14 +1,15 @@
 export class CardList {
-  constructor(resultContainer, cardTemplate, createCard, resultMoreButton) {
+  constructor(resultContainer, cardTemplate, createCard, resultMoreButton, mainApi) {
     this.resultContainer = resultContainer;
     this.cardTemplate = cardTemplate;
     this.createCard = createCard;
     this.articlesArr = [];
     this.resultMoreButton = resultMoreButton;
+    this.api = mainApi;
   };
 
   addCard = (data) => {
-    this.resultContainer.append(this.createCard(data, this.cardTemplate).create());
+    this.resultContainer.append(this.createCard(data, this.cardTemplate, this.api).create());
   }
 
   render(articles) {

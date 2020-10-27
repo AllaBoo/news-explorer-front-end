@@ -74,8 +74,9 @@
     <template id="card__template">
       <div class="article lower-layer">
         <div class="article__container article__container_unauthorized">
+          <p class="article__tooltip lower-layer hidden">Войдите, чтобы сохранять статьи</p>
           <button class="article__icon"><img src="<%=require('./images/icons/save.svg').default %>"
-              alt="Иконка сохранить"></button>
+              alt="Иконка сохранить" class="article__icon-img"></button>
         </div>
         <a href="" target="_blank" class="article__link">
           <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье">
@@ -89,6 +90,17 @@
           <p class="article__source">Лента.ру</p>
         </a>
       </div>
+    </template>
+    <template id="save-hover">
+      <img src="<%=require('./images/icons/save_hover.svg').default %>" alt="Иконка сохранить"
+        class="article__icon-img">
+    </template>
+    <template id="save-unhover">
+      <img src="<%=require('./images/icons/save.svg').default %>" alt="Иконка сохранить" class="article__icon-img">
+    </template>
+    <template id="save-marked">
+      <img src="<%=require('./images/icons/save_marked.svg').default %>" alt="Иконка сохранить"
+        class="article__icon-img">
     </template>
     <button class="button result__button hidden">Показать ещё</button>
   </section>

@@ -17,7 +17,7 @@ const popupLogin = new PopupLogin(loginPopup, mainApi, header);
 const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard).addCard(...arg);
-const cardList = new CardList(resultContainer, cardTemplate, createCard, resultMoreButton);
+const cardList = new CardList(resultContainer, cardTemplate, createCard, resultMoreButton, mainApi);
 
 loginButtonHeader.addEventListener('click', () => {
   header.closeMenu();
