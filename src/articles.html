@@ -44,9 +44,11 @@
   </header>
   <section class="greeting root">
     <p class="greeting__subtitle">Сохранённые статьи</p>
-    <h2 class="greeting__title"><span>Грета</span>, у вас <span>5</span> <span>сохранённых статей</span></h2>
-    <p class="greeting__text">По ключевым словам: <span class="span">Природа</span>, <span class="span">Тайга</span> и
-      <span class="span">2-м</span> <span class="span">другим</span></p>
+    <h2 class="greeting__title"><span id="user-greeting">Грета</span>, у вас <span id="articles-amount">5</span>
+      <span id="articles-caption">сохранённых статей</span></h2>
+    <p class="greeting__text">По ключевым словам: <span class="span" id="first-tag">Природа</span>, <span class="span"
+        id="second-tag">Тайга</span> и
+      <span class="span" id="tag-amount">2-м</span> <span class="span">другим</span></p>
   </section>
   <main class="result root">
     <div class="result__container">
@@ -62,7 +64,8 @@
             </div>
           </div>
           <a href="" target="_blank" class="article__link">
-            <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье">
+            <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье"
+              class="article__icon-img">
             <div class="article__description">
               <p class="article__date">2 августа, 2019</p>
               <h3 class="article__title">Национальное достояние – парки</h3>

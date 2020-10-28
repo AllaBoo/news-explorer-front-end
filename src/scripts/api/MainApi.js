@@ -63,7 +63,7 @@ export class MainApi {
       .catch((err) => { throw err; })
   }
 
-  saveArticle = (articleData) => {
+  postArticle = (articleData) => {
     return fetch(`http://localhost:3000/articles`, {
       method: 'POST',
       credentials: 'include',
@@ -92,6 +92,24 @@ export class MainApi {
   getInitialArticles() {
     return fetch(`http://localhost:3000/articles`, {
       method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      const json = res.json();
+      return json.then(Promise.reject.bind(Promise))
+    })
+      .catch((err) => { throw err; })
+  }
+
+
+  removeArticle = (articleID) => {
+    return fetch(`http://localhost:3000/articles/${articleID}`, {
+      method: 'DELETE',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',

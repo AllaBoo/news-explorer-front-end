@@ -34,14 +34,9 @@ export class CardList {
     }
   }
 
-  renderSavedArticles() {
-    this.api.getInitialArticles()
-      .then((res) => {
-        const savedArticlesArr = res.data;
-        savedArticlesArr.forEach(data => {
-          this.addArticle(data, this.resultContainer)
-        });
-      })
-      .catch(err => alert(err));
+  renderSavedArticles(savedArticlesArr) {
+    savedArticlesArr.forEach(data => {
+      this.addArticle(data, this.resultContainer)
+    });
   }
 }

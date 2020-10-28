@@ -23,3 +23,7 @@ export const resultTitle = document.querySelector('.result__title');
 export const cardTemplate = document.querySelector('#card__template').content.querySelector('.article');
 
 export const headerIcon = document.querySelector('.header__icon');
+
+export const firstTagSpan = document.querySelector('#first-tag');
+export const secondTagSpan = document.querySelector('#second-tag');
+export const tagAmountSpan = document.querySelector('#tag-amount');

@@ -4,7 +4,6 @@ export class Header {
     this.articleLink = document.querySelector('#article-link');
     this.quitButton = document.querySelector('#quit-button');
     this.loginButtonHeader = document.querySelector('#login-button-header');
-
     this.headerIcon = document.querySelector('.header__icon');
     this.templateClose = document.querySelector('#icon-close').content.querySelector('img');
     this.templateOpen = document.querySelector('#icon-open').content.querySelector('img');
