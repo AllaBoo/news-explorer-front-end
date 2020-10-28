@@ -1,15 +1,19 @@
 export class CardList {
-  constructor(resultContainer, cardTemplate, createCard, resultMoreButton, mainApi) {
+  constructor(resultContainer, cardTemplate, createCard, mainApi) {
     this.resultContainer = resultContainer;
     this.cardTemplate = cardTemplate;
     this.createCard = createCard;
     this.articlesArr = [];
-    this.resultMoreButton = resultMoreButton;
+    this.resultMoreButton = document.querySelector('.result__button');
     this.api = mainApi;
   };
 
   addCard = (data) => {
     this.resultContainer.append(this.createCard(data, this.cardTemplate, this.api).create());
+  }
+
+  addArticle = (data) => {
+    this.resultContainer.append(this.createCard(data, this.cardTemplate, this.api).createArticle());
   }
 
   render(articles) {
@@ -28,5 +32,16 @@ export class CardList {
     if (this.articlesArr.length <= 4) {
       this.resultMoreButton.classList.add('hidden');
     }
+  }
+
+  renderSavedArticles() {
+    this.api.getInitialArticles()
+      .then((res) => {
+        const savedArticlesArr = res.data;
+        savedArticlesArr.forEach(data => {
+          this.addArticle(data, this.resultContainer)
+        });
+      })
+      .catch(err => alert(err));
   }
 }

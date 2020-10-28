@@ -1,5 +1,5 @@
 import Popup from './Popup';
-export class PopupRegister extends Popup {
+class PopupRegister extends Popup {
   constructor(popupName, api, messagePopup) {
     super(popupName);
     //this.formValidator = formValidator;
@@ -43,3 +43,4 @@ export class PopupRegister extends Popup {
 
 }
 
+export { PopupRegister };

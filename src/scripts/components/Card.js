@@ -22,16 +22,29 @@ export class Card {
     return this.card;
   }
 
+  createArticle() {
+    this.card = this.cardTemplate.cloneNode(true);
+    this.card.querySelector('.article__link').setAttribute('href', this.data.link);
+    this.card.querySelector('.article__tag').textContent = this.data.keyword;
+    this.card.querySelector('.article__title').textContent = this.data.title;
+    this.card.querySelector('.article__photo').setAttribute('src', this.data.image);
+    this.card.querySelector('.article__date').textContent = this.data.date;
+    this.card.querySelector('.article__text').textContent = this.data.text;
+    this.card.querySelector('.article__source').textContent = this.data.source;
+    this.setListeners();
+    return this.card;
+  }
+
   hoverIcon() {
     const articleIcon = this.card.querySelector('.article__icon');
     while (articleIcon.firstChild) {
       articleIcon.removeChild(articleIcon.firstChild);
     };
-    const saveHover = document.querySelector('#save-hover').content.querySelector('img').cloneNode(true);
-    if (localStorage.getItem('username') === null) {
+    const iconHover = document.querySelector('#icon-hover').content.querySelector('img').cloneNode(true);
+    if (localStorage.getItem('token') === null) {
       this.card.querySelector('.article__tooltip').classList.remove('hidden');
     }
-    articleIcon.append(saveHover);
+    articleIcon.append(iconHover);
   }
 
   unHoverIcon() {
@@ -39,9 +52,9 @@ export class Card {
     while (articleIcon.firstChild) {
       articleIcon.removeChild(articleIcon.firstChild);
     };
-    const saveUnhover = document.querySelector('#save-unhover').content.querySelector('img').cloneNode(true);
+    const iconUnhover = document.querySelector('#icon-unhover').content.querySelector('img').cloneNode(true);
     this.card.querySelector('.article__tooltip').classList.add('hidden');
-    articleIcon.append(saveUnhover);
+    articleIcon.append(iconUnhover);
   }
 
   markIcon() {
@@ -53,8 +66,8 @@ export class Card {
           while (articleIcon.firstChild) {
             articleIcon.removeChild(articleIcon.firstChild);
           };
-          const saveMark = document.querySelector('#save-marked').content.querySelector('img').cloneNode(true);
-          articleIcon.append(saveMark);
+          const iconMark = document.querySelector('#icon-mark').content.querySelector('img').cloneNode(true);
+          articleIcon.append(iconMark);
           this.removeListeners();
           const articleData = {
             keyword: searchWord.value,
@@ -74,7 +87,6 @@ export class Card {
     const articleIcon = this.card.querySelector('.article__icon');
     articleIcon.addEventListener('mouseover', this.hoverIcon);
     articleIcon.addEventListener('mouseout', this.unHoverIcon);
-    this.card.querySelector('.article__icon-img').addEventListener('click', this.markIcon);
     articleIcon.addEventListener('click', this.markIcon);
   }
 
