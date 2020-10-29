@@ -6,10 +6,12 @@ export class Card {
     this.card = null;
     this.cardTemplate = cardTemplate;
     this.api = api;
+    this.articleID = null;
     this.hoverIcon = this.hoverIcon.bind(this);
     this.unHoverIcon = this.unHoverIcon.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
+    this.cancelSaveArticle = this.cancelSaveArticle.bind(this);
   };
 
   create() {
@@ -64,8 +66,10 @@ export class Card {
         if (res != undefined) {
           this.card.querySelector('.article__tooltip').classList.add('hidden');
           this.card.querySelector('#icon-hover').classList.add('hidden');
+          this.card.querySelector('#icon-unhover').classList.add('hidden');
           this.card.querySelector('#icon-mark').classList.remove('hidden');
           this.removeListeners();
+          this.card.querySelector('.article__icon').addEventListener('click', this.cancelSaveArticle);
           const articleData = {
             keyword: searchWord.value,
             title: this.data.title,
@@ -75,17 +79,30 @@ export class Card {
             link: this.data.url,
             image: this.data.urlToImage
           };
-          this.api.postArticle(articleData);
+          this.api.postArticle(articleData)
+            .then((res) => {
+              this.articleID = res.data._id;
+            })
+            .catch(err => console.log(err));
         }
       })
+      .catch(err => console.log(err));
+  }
+
+  cancelSaveArticle() {
+    this.card.querySelector('#icon-unhover').classList.remove('hidden');
+    this.card.querySelector('#icon-mark').classList.add('hidden');
+    this.api.removeArticle(this.articleID);
+    this.card.querySelector('.article__icon').addEventListener('click', this.saveArticle);
   }
 
   deleteArticle() {
     this.removeListeners();
     const articleID = this.card.querySelector('.article__container').dataset.id;
     this.card.closest('.article').remove();
-    this.api.removeArticle(articleID);
-    window.location.reload();
+    this.api.removeArticle(articleID)
+      .then(() => { window.location.reload(); })
+      .catch(err => alert(err));
   }
 
   setListeners() {
@@ -99,7 +116,7 @@ export class Card {
     articleIcon.removeEventListener('mouseover', this.hoverIcon);
     articleIcon.removeEventListener('mouseout', this.unHoverIcon);
     articleIcon.removeEventListener('click', this.saveArticle);
-    articleIcon.addEventListener('click', this.deleteArticle);
+    articleIcon.removeEventListener('click', this.deleteArticle);
   }
 
 }

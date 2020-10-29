@@ -69,7 +69,6 @@ mainApi.getInitialArticles()
     const secondTag = getKeyByValue(keywordsObj, secondtValue);
     delete keywordsObj[secondTag];
     const thirdTag = getKeyByValue(keywordsObj, thirdValue);
-    console.log(thirdTag)
     const anoverTagAmount = allTagAmount - 2;
     const articleAmount = res.data.length;
     if (articleAmount <= 0) {
