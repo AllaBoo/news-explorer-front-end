@@ -1,4 +1,5 @@
 import { searchWord, imageUrl } from '../constants/constants'
+import { editDataFormat } from '../utils/utils'
 export class Card {
   constructor(data, cardTemplate, api) {
     this.data = data;
@@ -17,26 +18,7 @@ export class Card {
     this.card.querySelector('.article__link').setAttribute('href', image);
     this.card.querySelector('.article__title').textContent = this.data.title;
     this.card.querySelector('.article__photo').setAttribute('src', this.data.urlToImage);
-    const wrongDate = this.data.publishedAt.slice(0, 10);
-    const year = wrongDate.split('-')[0];
-    const month = wrongDate.split('-')[1];
-    const day = wrongDate.split('-')[2];
-    const monthObj = {
-      '01': 'января',
-      '02': 'февраля',
-      '03': 'марта',
-      '04': 'апреля',
-      '05': 'мая',
-      '06': 'июня',
-      '07': 'июля',
-      '08': 'августа',
-      '09': 'сентября',
-      '10': 'октября',
-      '11': 'ноября',
-      '12': 'декабря'
-    };
-    const monthWord = monthObj[`${month}`];
-    this.card.querySelector('.article__date').textContent = (`${day} ${monthWord}, ${year}`);
+    this.card.querySelector('.article__date').textContent = editDataFormat(this.data.publishedAt.slice(0, 10));
     this.card.querySelector('.article__text').textContent = this.data.description;
     this.card.querySelector('.article__source').textContent = this.data.source.name;
     this.card.querySelector('.article__icon').addEventListener('click', this.saveArticle);
@@ -88,7 +70,7 @@ export class Card {
             keyword: searchWord.value,
             title: this.data.title,
             text: this.data.description,
-            date: this.data.publishedAt,
+            date: editDataFormat(this.data.publishedAt.slice(0, 10)),
             source: this.data.source.name,
             link: this.data.url,
             image: this.data.urlToImage
