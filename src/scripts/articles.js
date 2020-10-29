@@ -58,6 +58,7 @@ mainApi.getInitialArticles()
     // получим значения максимального количества повторений
     const firstValue = sortedValuesArr[0];
     const secondtValue = sortedValuesArr[1];
+    const thirdValue = sortedValuesArr[2];
     // функция для поиска ключей в объекте по их значениям
     function getKeyByValue(object, value) {
       return Object.keys(object).find(key => object[key] === value);
@@ -66,13 +67,27 @@ mainApi.getInitialArticles()
     // удалим из объекта первый тег для избежания повторения при равных значениях, нотация для ключа-переменной скобочная
     delete keywordsObj[firstTag];
     const secondTag = getKeyByValue(keywordsObj, secondtValue);
+    delete keywordsObj[secondTag];
+    const thirdTag = getKeyByValue(keywordsObj, thirdValue);
+    console.log(thirdTag)
     const anoverTagAmount = allTagAmount - 2;
     const articleAmount = res.data.length;
     if (articleAmount <= 0) {
       articlesAmountSpan.textContent = 0;
       document.querySelector('.greeting__text').classList.add('hidden');
-    } else if (anoverTagAmount <= 0) {
-      tagAmountSpan.textContent = 0;
+    } else if (allTagAmount === 3) {
+      tagAmountSpan.textContent = thirdTag;
+      tagCaptionSpan.classList.add('hidden');
+    } else if (allTagAmount === 2) {
+      secondTagSpan.textContent = secondTag;
+      tagAmountSpan.classList.add('hidden');
+      document.querySelector('#copulative').classList.add('hidden');
+      tagCaptionSpan.classList.add('hidden');
+    } else if (allTagAmount === 1) {
+      secondTagSpan.textContent = '';
+      tagAmountSpan.classList.add('hidden');
+      document.querySelector('#copulative').classList.add('hidden');
+      tagCaptionSpan.classList.add('hidden');
     } else { tagAmountSpan.textContent = anoverTagAmount; }
     firstTagSpan.textContent = firstTag;
     secondTagSpan.textContent = secondTag;

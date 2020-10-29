@@ -65,7 +65,7 @@ searchForm.addEventListener('submit', () => {
       resultContainer.classList.remove('hidden');
       resultLoading.classList.add('hidden');
     })
-    .catch(() => {
+    .catch((err) => {
       resultError.classList.remove('hidden');
     })
 });
