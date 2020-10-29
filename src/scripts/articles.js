@@ -1,13 +1,9 @@
 import '../styles/articles.css';
 
 import {
-  loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader,
-  resultContainer, cardTemplate, messagePopupLoginButton, headerIcon,
-  firstTagSpan, secondTagSpan, tagAmountSpan, articlesAmountSpan, userSpan, articlesAmountCaptionSpan
+  resultContainer, cardTemplate, headerIcon, firstTagSpan, secondTagSpan, tagAmountSpan,
+  articlesAmountSpan, userSpan, articlesAmountCaptionSpan, tagCaptionSpan
 } from './constants/constants';
-import { PopupLogin } from './components/PopupLogin';
-import { PopupRegister } from './components/PopupRegister';
-import { PopupMessage } from './components/PopupMessage';
 import { Header } from './components/Header';
 import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
@@ -15,9 +11,6 @@ import { CardList } from './components/CardList';
 
 const mainApi = new MainApi();
 const header = new Header(mainApi);
-const popupMessage = new PopupMessage(messagePopup);
-const popupRegister = new PopupRegister(registerPopup, mainApi, popupMessage);
-const popupLogin = new PopupLogin(loginPopup, mainApi, header);
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard, mainApi).addCard(...arg);
 const cardList = new CardList(resultContainer, cardTemplate, createCard, mainApi);
@@ -73,13 +66,10 @@ mainApi.getInitialArticles()
     const articleAmount = res.data.length;
     if (articleAmount <= 0) {
       articlesAmountSpan.textContent = 0;
-      articlesAmountCaptionSpan.textContent = 'сохранённых статей';
       document.querySelector('.greeting__text').classList.add('hidden');
-    }
-    if (anoverTagAmount <= 0) {
+    } else if (anoverTagAmount <= 0) {
       tagAmountSpan.textContent = 0;
-    }
-    tagAmountSpan.textContent = anoverTagAmount;
+    } else { tagAmountSpan.textContent = anoverTagAmount; }
     firstTagSpan.textContent = firstTag;
     secondTagSpan.textContent = secondTag;
     articlesAmountSpan.textContent = articleAmount;
@@ -96,26 +86,16 @@ mainApi.getInitialArticles()
     } else {
       articlesAmountCaptionSpan.textContent = 'сохранённых статей';
     }
+    if (arr1.some(function (item) {
+      return (item === anoverTagAmount);
+    })) {
+      tagCaptionSpan.textContent = 'другому';
+    } else {
+      tagCaptionSpan.textContent = 'другим';
+    }
     cardList.renderSavedArticles(savedArticlesArr);
   })
   .catch(err => alert(err));
-
-loginButtonHeader.addEventListener('click', () => {
-  header.closeMenu();
-  popupLogin.open();
-});
-registerButton.addEventListener('click', () => {
-  popupLogin.close();
-  popupRegister.open();
-});
-loginButton.addEventListener('click', () => {
-  popupRegister.close();
-  popupLogin.open();
-});
-messagePopupLoginButton.addEventListener('click', () => {
-  popupMessage.close();
-  popupLogin.open();
-});
 
 headerIcon.addEventListener('click', () => header.openMenu());
 header.render();
