@@ -59,8 +59,11 @@
             <p class="article__tag lower-layer">Природа</p>
             <div class="article__icon-container">
               <p class="article__tooltip lower-layer hidden">Убрать из сохранённых</p>
-              <button class="article__icon"><img src="<%=require('./images/icons/trash.svg').default %>"
-                  alt="Иконка удалить"></button>
+              <button class="article__icon">
+                <img src="<%=require('./images/icons/trash.svg').default %>" alt="Иконка удалить" id="icon-unhover">
+                <img src="<%=require('./images/icons/trash_hover.svg').default %>" alt="Иконка сохранить"
+                  id="icon-hover" class="hidden">
+              </button>
             </div>
           </div>
           <a href="" target="_blank" class="article__link">
@@ -76,13 +79,6 @@
             <p class="article__source">Лента.ру</p>
           </a>
         </div>
-      </template>
-      <template id="icon-hover">
-        <img src="<%=require('./images/icons/trash_hover.svg').default %>" alt="Иконка сохранить"
-          class="article__icon-img">
-      </template>
-      <template id="icon-unhover">
-        <img src="<%=require('./images/icons/trash.svg').default %>" alt="Иконка сохранить" class="article__icon-img">
       </template>
   </main>
   <footer class="footer root">

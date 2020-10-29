@@ -41,40 +41,29 @@ export class Card {
   }
 
   hoverIcon() {
-    // нужен разный ховер для статей и карточек, статьи показывают подсказку независимо от логина
-    const articleIcon = this.card.querySelector('.article__icon');
-    while (articleIcon.firstChild) {
-      articleIcon.removeChild(articleIcon.firstChild);
-    };
-    const iconHover = document.querySelector('#icon-hover').content.querySelector('img').cloneNode(true);
-    if (localStorage.getItem('token') === null) {
-      this.card.querySelector('.article__tooltip').classList.remove('hidden');
+    const tooltip = this.card.querySelector('.article__tooltip')
+    this.card.querySelector('#icon-hover').classList.remove('hidden');
+    this.card.querySelector('#icon-unhover').classList.add('hidden');
+    if (document.URL.includes('articles')) {
+      tooltip.classList.remove('hidden');
+    } else if (localStorage.getItem('token') === null) {
+      tooltip.classList.remove('hidden');
     }
-    articleIcon.append(iconHover);
   }
 
   unHoverIcon() {
-    const articleIcon = this.card.querySelector('.article__icon');
-    while (articleIcon.firstChild) {
-      articleIcon.removeChild(articleIcon.firstChild);
-    };
-    const iconUnhover = document.querySelector('#icon-unhover').content.querySelector('img').cloneNode(true);
+    this.card.querySelector('#icon-hover').classList.add('hidden');
+    this.card.querySelector('#icon-unhover').classList.remove('hidden');
     this.card.querySelector('.article__tooltip').classList.add('hidden');
-    articleIcon.append(iconUnhover);
   }
 
   saveArticle() {
-    // слушатель срабатывает только на подложке, но не на самой иконке
     this.api.getUser()
       .then((res) => {
         if (res != undefined) {
-          const articleIcon = this.card.querySelector('.article__icon');
           this.card.querySelector('.article__tooltip').classList.add('hidden');
-          while (articleIcon.firstChild) {
-            articleIcon.removeChild(articleIcon.firstChild);
-          };
-          const iconMark = document.querySelector('#icon-mark').content.querySelector('img').cloneNode(true);
-          articleIcon.append(iconMark);
+          this.card.querySelector('#icon-hover').classList.add('hidden');
+          this.card.querySelector('#icon-mark').classList.remove('hidden');
           this.removeListeners();
           const articleData = {
             keyword: searchWord.value,
