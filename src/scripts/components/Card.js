@@ -84,6 +84,7 @@ export class Card {
     const articleID = this.card.querySelector('.article__container').dataset.id;
     this.card.closest('.article').remove();
     this.api.removeArticle(articleID);
+    window.location.reload();
   }
 
   setListeners() {

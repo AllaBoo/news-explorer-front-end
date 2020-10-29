@@ -141,25 +141,23 @@
     </div>
   </footer>
 
-
-
   <div id="loginPopup" class="popup">
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Вход</h3>
-      <form class="popup__form" id="login-form">
+      <form class="popup__form" id="login-form" novalidate>
         <div class="popup__input-container">
           <p class="popup__input-name">Email</p>
-          <input type="email" id="mail" minlength="2" class="popup__input" placeholder="Введите почту" required>
-          <span class="popup__error-message">Неправильный формат email</span>
+          <input type="email" id="mail" class="popup__input" placeholder="Введите почту" required>
+          <span class="popup__error-message" id="error-mail">Неправильный формат email</span>
         </div>
         <div class="popup__input-container">
           <p class="popup__input-name">Пароль</p>
-          <input type="text" id="password" minlength="2" class="popup__input" placeholder="Введите пароль" required>
-          <span class="popup__error-message"></span>
+          <input type="text" id="password" class="popup__input" placeholder="Введите пароль" required>
+          <span class="popup__error-message" id="error-password"></span>
         </div>
         <p class="popup__error-message popup__error-message_centred">Неверный логин или пароль</p>
-        <button type="submit" class="popup__button button popup__button_active">Войти</button>
+        <button type="submit" class="popup__button button" desable="desable">Войти</button>
       </form>
       <div class="popup__text-container">
         <p class="popup__text">или</p>
@@ -172,25 +170,25 @@
     <div class="popup__content">
       <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
-      <form class="popup__form" id="register-form">
+      <form class="popup__form" id="register-form" novalidate>
         <div class="popup__input-container">
           <p class="popup__input-name">Email</p>
-          <input id="user-mail" type="email" minlength="2" class="popup__input" placeholder="Введите почту" required>
-          <span class="popup__error-message">Неправильный формат email</span>
+          <input id="user-mail" type="email" class="popup__input" placeholder="Введите почту" required>
+          <span class="popup__error-message" id="error-user-mail">Неправильный формат email</span>
         </div>
         <div class="popup__input-container">
           <p class="popup__input-name">Пароль</p>
           <input id="user-password" type="text" minlength="2" class="popup__input" placeholder="Введите пароль"
             required>
-          <span class="popup__error-message"></span>
+          <span class="popup__error-message" id="error-user-password"></span>
         </div>
         <div class="popup__input-container">
           <p class="popup__input-name">Имя</p>
-          <input id="user-name" type="text" minlength="2" class="popup__input" placeholder="Введите пароль" required>
-          <span class="popup__error-message"></span>
+          <input id="user-name" type="text" class="popup__input" placeholder="Введите пароль" required>
+          <span class="popup__error-message" id="error-user-name"></span>
         </div>
         <p class="popup__error-message popup__error-message_centred">Такой пользователь уже есть</p>
-        <button type="submit" class="popup__button button popup__button_active">Зарегистрироваться</button>
+        <button type="submit" class="popup__button button">Зарегистрироваться</button>
       </form>
       <div class="popup__text-container">
         <p class="popup__text">или</p>

@@ -3,6 +3,7 @@ import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, l
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
 import { PopupMessage } from './components/PopupMessage';
+import { FormValidator } from './components/FormValidator';
 import { Header } from './components/Header';
 import { NewsApi } from './api/NewsApi';
 import { MainApi } from './api/MainApi';
@@ -11,13 +12,15 @@ import { CardList } from './components/CardList';
 
 const mainApi = new MainApi();
 const header = new Header(mainApi);
+const formValidator = (...arg) => new FormValidator(...arg);
 const popupMessage = new PopupMessage(messagePopup);
-const popupRegister = new PopupRegister(registerPopup, mainApi, popupMessage);
-const popupLogin = new PopupLogin(loginPopup, mainApi, header);
+const popupRegister = new PopupRegister(registerPopup, mainApi, popupMessage, formValidator);
+const popupLogin = new PopupLogin(loginPopup, mainApi, header, formValidator);
 const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard, mainApi).addCard(...arg);
 const cardList = new CardList(resultContainer, cardTemplate, createCard, mainApi);
+
 
 loginButtonHeader.addEventListener('click', () => {
   header.closeMenu();
