@@ -17,7 +17,26 @@ export class Card {
     this.card.querySelector('.article__link').setAttribute('href', image);
     this.card.querySelector('.article__title').textContent = this.data.title;
     this.card.querySelector('.article__photo').setAttribute('src', this.data.urlToImage);
-    this.card.querySelector('.article__date').textContent = this.data.publishedAt;
+    const wrongDate = this.data.publishedAt.slice(0, 10);
+    const year = wrongDate.split('-')[0];
+    const month = wrongDate.split('-')[1];
+    const day = wrongDate.split('-')[2];
+    const monthObj = {
+      '01': 'января',
+      '02': 'февраля',
+      '03': 'марта',
+      '04': 'апреля',
+      '05': 'мая',
+      '06': 'июня',
+      '07': 'июля',
+      '08': 'августа',
+      '09': 'сентября',
+      '10': 'октября',
+      '11': 'ноября',
+      '12': 'декабря'
+    };
+    const monthWord = monthObj[`${month}`];
+    this.card.querySelector('.article__date').textContent = (`${day} ${monthWord}, ${year}`);
     this.card.querySelector('.article__text').textContent = this.data.description;
     this.card.querySelector('.article__source').textContent = this.data.source.name;
     this.card.querySelector('.article__icon').addEventListener('click', this.saveArticle);
