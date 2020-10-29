@@ -1,4 +1,4 @@
-import { searchWord } from '../constants/constants'
+import { searchWord, imageUrl } from '../constants/constants'
 export class Card {
   constructor(data, cardTemplate, api) {
     this.data = data;
@@ -13,7 +13,8 @@ export class Card {
 
   create() {
     this.card = this.cardTemplate.cloneNode(true);
-    this.card.querySelector('.article__link').setAttribute('href', this.data.url)
+    const image = this.data.url === null ? imageUrl : this.data.url;
+    this.card.querySelector('.article__link').setAttribute('href', image);
     this.card.querySelector('.article__title').textContent = this.data.title;
     this.card.querySelector('.article__photo').setAttribute('src', this.data.urlToImage);
     this.card.querySelector('.article__date').textContent = this.data.publishedAt;

@@ -27,3 +27,8 @@ export const headerIcon = document.querySelector('.header__icon');
 export const firstTagSpan = document.querySelector('#first-tag');
 export const secondTagSpan = document.querySelector('#second-tag');
 export const tagAmountSpan = document.querySelector('#tag-amount');
+export const articlesAmountSpan = document.querySelector('#articles-amount');
+export const articlesAmountCaptionSpan = document.querySelector('#articles-caption');
+export const userSpan = document.querySelector('#user-greeting');
+
+export const imageUrl = 'https://north-empire.com/images/photo/placeholder.jpg';

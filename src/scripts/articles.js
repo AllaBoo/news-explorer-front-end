@@ -2,7 +2,8 @@ import '../styles/articles.css';
 
 import {
   loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader,
-  resultContainer, cardTemplate, messagePopupLoginButton, headerIcon, firstTagSpan, secondTagSpan, tagAmountSpan
+  resultContainer, cardTemplate, messagePopupLoginButton, headerIcon,
+  firstTagSpan, secondTagSpan, tagAmountSpan, articlesAmountSpan, userSpan, articlesAmountCaptionSpan
 } from './constants/constants';
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
@@ -23,13 +24,13 @@ const cardList = new CardList(resultContainer, cardTemplate, createCard, mainApi
 
 mainApi.getUser()
   .then((res) => {
-    document.querySelector('#user-greeting').textContent = res.name;
-  });
+    userSpan.textContent = res.name;
+  })
+  .catch(err => alert(err));
 
 mainApi.getInitialArticles()
   .then((res) => {
     const savedArticlesArr = res.data;
-    const articlesCaption = document.querySelector('#articles-caption')
     document.querySelector('#articles-amount').textContent = savedArticlesArr.length;
     const keywordsArr = [];
     // создаём массив ключевых слов, выдранных из объекта со статьями
@@ -65,19 +66,35 @@ mainApi.getInitialArticles()
       return Object.keys(object).find(key => object[key] === value);
     }
     const firstTag = getKeyByValue(keywordsObj, firstValue);
+    // удалим из объекта первый тег для избежания повторения при равных значениях, нотация для ключа-переменной скобочная
+    delete keywordsObj[firstTag];
     const secondTag = getKeyByValue(keywordsObj, secondtValue);
-    const tagAmount = allTagAmount - 2;
+    const anoverTagAmount = allTagAmount - 2;
+    const articleAmount = res.data.length;
+    if (articleAmount <= 0) {
+      articlesAmountSpan.textContent = 0;
+      articlesAmountCaptionSpan.textContent = 'сохранённых статей';
+      document.querySelector('.greeting__text').classList.add('hidden');
+    }
+    if (anoverTagAmount <= 0) {
+      tagAmountSpan.textContent = 0;
+    }
+    tagAmountSpan.textContent = anoverTagAmount;
     firstTagSpan.textContent = firstTag;
     secondTagSpan.textContent = secondTag;
-    tagAmountSpan.textContent = tagAmount;
-    const articleAmount = res.data.length;
-    // надо вынести в отдельный метод и повторять при удалении статей
-    if (articleAmount >= 5) { // надо доработать
-      articlesCaption.textContent = 'сохранённых статей';
-    } else if (articleAmount < 5 & articleAmount != 1) {
-      articlesCaption.textContent = 'сохранённые статьи';
-    } else if (articleAmount === 1) {
-      articlesCaption.textContent = 'сохранённая статья';
+    articlesAmountSpan.textContent = articleAmount;
+    const arr1 = [1, 21, 31, 41, 51, 61, 71, 81, 91];
+    const arr2 = [2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64, 72, 73, 74, 82, 83, 84, 92, 93, 94];
+    if (arr1.some(function (item) {
+      return (item === articleAmount);
+    })) {
+      articlesAmountCaptionSpan.textContent = 'сохранённая статья';
+    } else if (arr2.some(function (item) {
+      return (item === articleAmount);
+    })) {
+      articlesAmountCaptionSpan.textContent = 'сохранённые статьи';
+    } else {
+      articlesAmountCaptionSpan.textContent = 'сохранённых статей';
     }
     cardList.renderSavedArticles(savedArticlesArr);
   })
