@@ -20,6 +20,7 @@ export class Header {
         document.querySelector('#greeting').textContent = res.name;
         this.quitButton.classList.remove('hidden');
       })
+      .catch(err => console.log(err));
   }
 
   openMenu() {

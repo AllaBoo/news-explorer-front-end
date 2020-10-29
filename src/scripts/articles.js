@@ -15,11 +15,15 @@ const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard, mainApi).addCard(...arg);
 const cardList = new CardList(resultContainer, cardTemplate, createCard, mainApi);
 
+if (localStorage.getItem('token') === null) {
+  window.location.href = 'http://localhost:8080';
+}
+
 mainApi.getUser()
   .then((res) => {
     userSpan.textContent = res.name;
   })
-  .catch(err => alert(err));
+  .catch(err => console.log(err));
 
 mainApi.getInitialArticles()
   .then((res) => {
@@ -95,7 +99,7 @@ mainApi.getInitialArticles()
     }
     cardList.renderSavedArticles(savedArticlesArr);
   })
-  .catch(err => alert(err));
+  .catch(err => console.log(err));
 
 headerIcon.addEventListener('click', () => header.openMenu());
 header.render();
