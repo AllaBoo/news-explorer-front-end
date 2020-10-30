@@ -7,11 +7,11 @@ export class Card {
     this.cardTemplate = cardTemplate;
     this.api = api;
     this.articleID = null;
-    this.hoverIcon = this.hoverIcon.bind(this);
-    this.unHoverIcon = this.unHoverIcon.bind(this);
-    this.saveArticle = this.saveArticle.bind(this);
-    this.deleteArticle = this.deleteArticle.bind(this);
-    this.cancelSaveArticle = this.cancelSaveArticle.bind(this);
+    this._hoverIcon = this._hoverIcon.bind(this);
+    this._unHoverIcon = this._unHoverIcon.bind(this);
+    this._saveArticle = this._saveArticle.bind(this);
+    this._deleteArticle = this._deleteArticle.bind(this);
+    this._cancelSaveArticle = this._cancelSaveArticle.bind(this);
   };
 
   create() {
@@ -23,8 +23,8 @@ export class Card {
     this.card.querySelector('.article__date').textContent = editDataFormat(this.data.publishedAt.slice(0, 10));
     this.card.querySelector('.article__text').textContent = this.data.description;
     this.card.querySelector('.article__source').textContent = this.data.source.name;
-    this.card.querySelector('.article__icon').addEventListener('click', this.saveArticle);
-    this.setListeners();
+    this.card.querySelector('.article__icon').addEventListener('click', this._saveArticle);
+    this._setHoverListeners();
     return this.card;
   }
 
@@ -38,12 +38,12 @@ export class Card {
     this.card.querySelector('.article__date').textContent = this.data.date;
     this.card.querySelector('.article__text').textContent = this.data.text;
     this.card.querySelector('.article__source').textContent = this.data.source;
-    this.card.querySelector('.article__icon').addEventListener('click', this.deleteArticle);
-    this.setListeners();
+    this.card.querySelector('.article__icon').addEventListener('click', this._deleteArticle);
+    this._setHoverListeners();
     return this.card;
   }
 
-  hoverIcon() {
+  _hoverIcon() {
     const tooltip = this.card.querySelector('.article__tooltip')
     this.card.querySelector('#icon-hover').classList.remove('hidden');
     this.card.querySelector('#icon-unhover').classList.add('hidden');
@@ -54,13 +54,13 @@ export class Card {
     }
   }
 
-  unHoverIcon() {
+  _unHoverIcon() {
     this.card.querySelector('#icon-hover').classList.add('hidden');
     this.card.querySelector('#icon-unhover').classList.remove('hidden');
     this.card.querySelector('.article__tooltip').classList.add('hidden');
   }
 
-  saveArticle() {
+  _saveArticle() {
     this.api.getUser()
       .then((res) => {
         if (res != undefined) {
@@ -68,8 +68,8 @@ export class Card {
           this.card.querySelector('#icon-hover').classList.add('hidden');
           this.card.querySelector('#icon-unhover').classList.add('hidden');
           this.card.querySelector('#icon-mark').classList.remove('hidden');
-          this.removeListeners();
-          this.card.querySelector('.article__icon').addEventListener('click', this.cancelSaveArticle);
+          this._removeListeners();
+          this.card.querySelector('.article__icon').addEventListener('click', this._cancelSaveArticle);
           const articleData = {
             keyword: searchWord.value,
             title: this.data.title,
@@ -89,17 +89,17 @@ export class Card {
       .catch(err => console.log(err));
   }
 
-  cancelSaveArticle() {
+  _cancelSaveArticle() {
     this.card.querySelector('#icon-unhover').classList.remove('hidden');
     this.card.querySelector('#icon-mark').classList.add('hidden');
     this.api.removeArticle(this.articleID);
-    this.card.querySelector('.article__icon').addEventListener('click', this.saveArticle);
-    this.card.querySelector('.article__icon').addEventListener('mouseover', this.hoverIcon);
-    this.card.querySelector('.article__icon').addEventListener('mouseout', this.unHoverIcon);
+    this.card.querySelector('.article__icon').addEventListener('click', this._saveArticle);
+    this.card.querySelector('.article__icon').addEventListener('mouseover', this._hoverIcon);
+    this.card.querySelector('.article__icon').addEventListener('mouseout', this._unHoverIcon);
   }
 
-  deleteArticle() {
-    this.removeListeners();
+  _deleteArticle() {
+    this._removeListeners();
     const articleID = this.card.querySelector('.article__container').dataset.id;
     this.card.closest('.article').remove();
     this.api.removeArticle(articleID)
@@ -107,18 +107,18 @@ export class Card {
       .catch(err => alert(err));
   }
 
-  setListeners() {
+  _setHoverListeners() {
     const articleIcon = this.card.querySelector('.article__icon');
-    articleIcon.addEventListener('mouseover', this.hoverIcon);
-    articleIcon.addEventListener('mouseout', this.unHoverIcon);
+    articleIcon.addEventListener('mouseover', this._hoverIcon);
+    articleIcon.addEventListener('mouseout', this._unHoverIcon);
   }
 
-  removeListeners() {
+  _removeListeners() {
     const articleIcon = this.card.querySelector('.article__icon');
-    articleIcon.removeEventListener('mouseover', this.hoverIcon);
-    articleIcon.removeEventListener('mouseout', this.unHoverIcon);
-    articleIcon.removeEventListener('click', this.saveArticle);
-    articleIcon.removeEventListener('click', this.deleteArticle);
+    articleIcon.removeEventListener('mouseover', this._hoverIcon);
+    articleIcon.removeEventListener('mouseout', this._unHoverIcon);
+    articleIcon.removeEventListener('click', this._saveArticle);
+    articleIcon.removeEventListener('click', this._deleteArticle);
   }
 
 }
