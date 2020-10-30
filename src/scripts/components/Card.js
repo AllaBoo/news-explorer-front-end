@@ -92,10 +92,14 @@ export class Card {
   _cancelSaveArticle() {
     this.card.querySelector('#icon-unhover').classList.remove('hidden');
     this.card.querySelector('#icon-mark').classList.add('hidden');
-    this.api.removeArticle(this.articleID);
-    this.card.querySelector('.article__icon').addEventListener('click', this._saveArticle);
-    this.card.querySelector('.article__icon').addEventListener('mouseover', this._hoverIcon);
-    this.card.querySelector('.article__icon').addEventListener('mouseout', this._unHoverIcon);
+    this.api.removeArticle(this.articleID)
+      .then(() => {
+        const articleIcon = this.card.querySelector('.article__icon');
+        articleIcon.addEventListener('click', this._saveArticle);
+        articleIcon.addEventListener('mouseover', this._hoverIcon);
+        articleIcon.addEventListener('mouseout', this._unHoverIcon);
+      })
+      .catch(err => alert(err));
   }
 
   _deleteArticle() {

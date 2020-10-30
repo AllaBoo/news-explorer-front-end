@@ -1,9 +1,10 @@
 export class MainApi {
-  constructor() {
+  constructor(server) {
+    this.server = server;
   }
 
   signUp = (newUserInfo) => {
-    return fetch(`http://localhost:3000/signup`, {
+    return fetch(`${this.server}signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -25,7 +26,7 @@ export class MainApi {
   }
 
   signIn = (loginData) => {
-    return fetch(`http://localhost:3000/signin`, {
+    return fetch(`${this.server}signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -47,7 +48,7 @@ export class MainApi {
   }
 
   getUser() {
-    return fetch(`http://localhost:3000/users/me`, {
+    return fetch(`${this.server}users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -64,7 +65,7 @@ export class MainApi {
   }
 
   postArticle = (articleData) => {
-    return fetch(`http://localhost:3000/articles`, {
+    return fetch(`${this.server}articles`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -90,7 +91,7 @@ export class MainApi {
   }
 
   getInitialArticles() {
-    return fetch(`http://localhost:3000/articles`, {
+    return fetch(`${this.server}articles`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -108,7 +109,7 @@ export class MainApi {
 
 
   removeArticle = (articleID) => {
-    return fetch(`http://localhost:3000/articles/${articleID}`, {
+    return fetch(`${this.server}articles/${articleID}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {

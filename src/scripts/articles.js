@@ -1,13 +1,14 @@
 import '../styles/articles.css';
 
 import { resultContainer, cardTemplate, headerIcon } from './constants/constants';
+import { newsApiServer, mainApiServer } from './config/config'
 import { Header } from './components/Header';
 import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
 import { CardList } from './components/CardList';
 import { ArticlesInfo } from './components/ArticlesInfo';
 
-const mainApi = new MainApi();
+const mainApi = new MainApi(mainApiServer);
 const header = new Header(mainApi);
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard, mainApi).addCard(...arg);

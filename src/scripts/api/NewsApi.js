@@ -1,5 +1,6 @@
 export class NewsApi {
-  constructor() {
+  constructor(server) {
+    this.server = server;
   }
 
   getNews(keyword) {
@@ -8,7 +9,7 @@ export class NewsApi {
     const lastweek = new Date(today.getTime() - weekInMS);
     const startDate = lastweek.toISOString().slice(0, 10);
     const finalDate = today.toISOString().slice(0, 10);
-    return fetch(`https://nomoreparties.co/news/v2/everything?q=${keyword}&from=${startDate}&to=${finalDate}&apiKey=89c2db63dfdc4d529c31e5e170b44a6d&pageSize=100`)
+    return fetch(`${this.server}v2/everything?q=${keyword}&from=${startDate}&to=${finalDate}&apiKey=89c2db63dfdc4d529c31e5e170b44a6d&pageSize=100`)
       .then(res => {
         if (res.ok) {
           return res.json();
