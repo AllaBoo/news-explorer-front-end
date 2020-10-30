@@ -31,5 +31,6 @@ export const articlesAmountSpan = document.querySelector('#articles-amount');
 export const articlesAmountCaptionSpan = document.querySelector('#articles-caption');
 export const userSpan = document.querySelector('#user-greeting');
 export const tagCaptionSpan = document.querySelector('#tag-caption');
+export const tagCopulativeSpan = document.querySelector('#copulative')
 
 export const imageUrl = 'https://north-empire.com/images/photo/placeholder.jpg';
