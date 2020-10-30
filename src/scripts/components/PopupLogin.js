@@ -13,11 +13,11 @@ export class PopupLogin extends Popup {
   open = () => {
     super.open();
     super.clearForm();
-    this.setSubmitListeners();
+    this._setSubmitListeners();
     this.formValidator(this.form).setEventListeners();
   }
 
-  login = (event) => {
+  _login = (event) => {
     event.preventDefault();
     const loginData = {
       email: this.mail.value,
@@ -35,8 +35,8 @@ export class PopupLogin extends Popup {
       })
   }
 
-  setSubmitListeners() {
-    this.form.addEventListener('submit', this.login);
+  _setSubmitListeners() {
+    this.form.addEventListener('submit', this._login);
   }
 
 }

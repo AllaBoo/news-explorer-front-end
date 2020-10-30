@@ -6,7 +6,7 @@ export default class Popup {
 
   open() {
     this.popup.classList.add('popup_opened');
-    this.setListeners();
+    this._setListeners();
     document.querySelector('.body').append(this.popup);
   }
 
@@ -23,7 +23,7 @@ export default class Popup {
     this.popup.closest('.popup').classList.remove('popup_opened');
   }
 
-  setListeners() {
+  _setListeners() {
     this.popup.querySelector('.popup__close').addEventListener('click', this.close);
   }
 

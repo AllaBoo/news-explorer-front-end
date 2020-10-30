@@ -14,11 +14,11 @@ class PopupRegister extends Popup {
   open = () => {
     super.open();
     super.clearForm();
-    this.setSubmitListeners();
+    this._setSubmitListeners();
     this.formValidator(this.form).setEventListeners();
   }
 
-  register = (event) => {
+  _register = (event) => {
     event.preventDefault();
     const newUserInfo = {
       name: this.userName.value,
@@ -37,8 +37,8 @@ class PopupRegister extends Popup {
       })
   }
 
-  setSubmitListeners() {
-    this.form.addEventListener('submit', this.register);
+  _setSubmitListeners() {
+    this.form.addEventListener('submit', this._register);
   }
 
 }
