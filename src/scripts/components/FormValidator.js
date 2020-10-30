@@ -6,23 +6,23 @@ export class FormValidator {
   setEventListeners = () => {
     Array.from(this.formName).forEach((inputElement) => {
       if (inputElement.type !== 'submit' && inputElement.tagName !== 'button') {
-        inputElement.addEventListener('input', this.handleValidate, true)
+        inputElement.addEventListener('input', this._handleValidate, true)
       }
     });
   }
 
-  handleValidate = (event) => {
+  _handleValidate = (event) => {
     const submit = event.target.form.querySelector('.popup__button');
     const [...inputs] = event.target.form.elements;
-    this.errorHandler(event.target);
-    if (inputs.every(this.checkInputValid)) {
-      this.setSubmitButtonState(submit, true);
+    this._errorHandler(event.target);
+    if (inputs.every(this._checkInputValid)) {
+      this._setSubmitButtonState(submit, true);
     } else {
-      this.setSubmitButtonState(submit, false);
+      this._setSubmitButtonState(submit, false);
     }
   }
 
-  setSubmitButtonState(formButton, validState) {
+  _setSubmitButtonState(formButton, validState) {
     if (validState) {
       formButton.removeAttribute('disabled');
       formButton.classList.add('popup__button_active');
@@ -32,14 +32,14 @@ export class FormValidator {
     }
   }
 
-  errorHandler = (inputElement) => {
+  _errorHandler = (inputElement) => {
     const errorElement = document.querySelector(`#error-${inputElement.id}`);
-    const valid = this.checkInputValid(inputElement);
+    const valid = this._checkInputValid(inputElement);
     errorElement.textContent = inputElement.validationMessage;
     return valid;
   }
 
-  checkInputValid = (inputElement) => {
+  _checkInputValid = (inputElement) => {
     inputElement.setCustomValidity('');
     if (inputElement.validity.valueMissing) {
       inputElement.setCustomValidity('Это обязательное поле');
@@ -58,7 +58,7 @@ export class FormValidator {
     let valid = true;
     inputs.forEach((inputElement) => {
       if (inputElement.type !== 'submit' && inputElement.tagName !== 'button') {
-        if (!this.errorHandler(inputElement)) valid = false;
+        if (!this._errorHandler(inputElement)) valid = false;
       }
     });
 
