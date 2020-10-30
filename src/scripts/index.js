@@ -1,5 +1,5 @@
 import '../styles/index.css';
-import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultSection, resultNotFound, resultLoading, resultTitle, resultMoreButton, resultError, messagePopupLoginButton, headerIcon } from './constants/constants'
+import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultMoreButton, messagePopupLoginButton, headerIcon } from './constants/constants'
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
 import { PopupMessage } from './components/PopupMessage';
@@ -9,6 +9,7 @@ import { NewsApi } from './api/NewsApi';
 import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
 import { CardList } from './components/CardList';
+import { Result } from './components/Result';
 
 const mainApi = new MainApi();
 const header = new Header(mainApi);
@@ -20,7 +21,7 @@ const newsApi = new NewsApi();
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard, mainApi).addCard(...arg);
 const cardList = new CardList(resultContainer, cardTemplate, createCard, mainApi);
-
+const result = new Result(newsApi, cardList);
 
 loginButtonHeader.addEventListener('click', () => {
   header.closeMenu();
@@ -39,36 +40,7 @@ messagePopupLoginButton.addEventListener('click', () => {
   popupLogin.open();
 });
 
-searchForm.addEventListener('submit', () => {
-  event.preventDefault();
-  while (resultContainer.firstChild) {
-    resultContainer.removeChild(resultContainer.firstChild);
-  };
-  resultSection.classList.remove('hidden');
-  resultLoading.classList.remove('hidden');
-  resultTitle.classList.add('hidden');
-  resultMoreButton.classList.add('hidden');
-  resultNotFound.classList.add('hidden');
-  resultError.classList.add('hidden');
-
-  newsApi.getNews(searchWord.value)
-    .then((res) => {
-      if (res.articles.length === 0) {
-        return resultNotFound.classList.remove('hidden');
-      } else {
-        cardList.render(res.articles);
-        resultTitle.classList.remove('hidden');
-        resultMoreButton.classList.remove('hidden');
-      }
-    })
-    .then(() => {
-      resultContainer.classList.remove('hidden');
-      resultLoading.classList.add('hidden');
-    })
-    .catch((err) => {
-      resultError.classList.remove('hidden');
-    })
-});
+searchForm.addEventListener('submit', () => result.searchNews(searchWord.value));
 
 resultMoreButton.addEventListener('click', () => cardList.renderMore());
 
