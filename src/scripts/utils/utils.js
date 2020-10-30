@@ -2,6 +2,9 @@ function editDataFormat(wrongDate) {
   const year = wrongDate.split('-')[0];
   const month = wrongDate.split('-')[1];
   const day = wrongDate.split('-')[2];
+  if (day[0] == 0) {
+    day = day.substr(1);
+  } else day;
   const monthObj = {
     '01': 'января',
     '02': 'февраля',

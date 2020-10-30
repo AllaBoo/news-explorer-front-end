@@ -94,6 +94,8 @@ export class Card {
     this.card.querySelector('#icon-mark').classList.add('hidden');
     this.api.removeArticle(this.articleID);
     this.card.querySelector('.article__icon').addEventListener('click', this.saveArticle);
+    this.card.querySelector('.article__icon').addEventListener('mouseover', this.hoverIcon);
+    this.card.querySelector('.article__icon').addEventListener('mouseout', this.unHoverIcon);
   }
 
   deleteArticle() {
