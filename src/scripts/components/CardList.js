@@ -18,7 +18,7 @@ export class CardList {
 
   render(articles) {
     this.articlesArr = articles;
-    const initArr = articles.slice(0, 3);
+    const initArr = this.articlesArr.slice(0, 3);
     initArr.forEach(data => {
       this.addCard(data)
     });

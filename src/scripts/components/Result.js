@@ -20,11 +20,14 @@ export class Result {
     this.api.getNews(keyword)
       .then((res) => {
         if (res.articles.length === 0) {
-          return resultNotFound.classList.remove('hidden');
-        } else {
+          resultNotFound.classList.remove('hidden');
+        }
+        else {
           this.cardList.render(res.articles);
           resultTitle.classList.remove('hidden');
-          resultMoreButton.classList.remove('hidden');
+          if (res.articles.length <= 3) {
+            resultMoreButton.classList.add('hidden');
+          } else resultMoreButton.classList.remove('hidden');
         }
       })
       .then(() => {
