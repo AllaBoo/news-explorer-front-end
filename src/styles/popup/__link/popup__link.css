@@ -1,0 +1,13 @@
+.popup__link {
+  font-family: Inter, Arial, sans-serif;
+  font-size: .875rem;
+  color: rgb(47, 113, 229);
+  display: inline;
+  margin: 0;
+  cursor: pointer;
+}
+
+.popup__link:visited {
+  color: rgb(47, 113, 229);
+  cursor: pointer;
+}

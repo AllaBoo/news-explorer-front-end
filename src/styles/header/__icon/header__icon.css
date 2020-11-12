@@ -1,0 +1,11 @@
+.header__icon {
+  display: none;
+}
+
+@media (max-width: 750px) {
+  .header__icon  {
+    display: block;
+    background-color: transparent;
+    border: none;
+  }
+}

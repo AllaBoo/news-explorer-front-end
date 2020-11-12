@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="html" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+    content="NewsExplorer - сервис, в котором можно найти новости по запросу и сохранить в личном кабинете.">
+  <meta name="Author" content="Алла Бутеева">
+  <title>NewsExplorer</title>
+  <link rel="icon" href="<%=require('./images/icons/favicon.png').default %>">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.index.css %>">
+</head>
+
+<body class="body">
+  <div class="cower">
+    <header class="header header_white root">
+      <p class="header__logo">NewsExplorer</p>
+      <nav class="nav header__menu">
+        <ul class="header__nav nav__list">
+          <li class="header__item" id="main-button"><a class="header__link header__link_active"
+              href="https://news-explorer-praktikum.ru">Главная</a></li>
+          <li class="header__item hidden" id="article-link"><a class="header__link"
+              href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
+          <li class="header__item hidden" id="quit-button"><button class="header__button button">
+              <p class="header__text" id="greeting">Грета</p> <img class="header__button-icon"
+                src="<%=require('./images/icons/exit.svg').default %>" alt="Иконка выхода (разлогиниться)">
+            </button></li>
+          <li class="header__item" id="login-button-header"><button
+              class="button header__button">Авторизоваться</button></li>
+        </ul>
+      </nav>
+      <button class="header__icon"><img src="<%=require('./images/icons/menu.svg').default%>" alt="Иконка открыть меню"
+          id="first-icon">
+        <template id="icon-open">
+          <img src="<%=require('./images/icons/menu.svg').default %>" alt="Иконка открыть меню" class="header__icon"
+            id="open">
+        </template>
+        <template id="icon-close">
+          <img src="<%=require('./images/icons/close-small.svg').default %>" alt="Иконка закрыть" class="header__icon"
+            id="close">
+        </template>
+      </button>
+    </header>
+    <main class="cower__container">
+      <h1 class="cower__title">Что творится в мире?</h1>
+      <p class="cower__subtitle text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.
+      </p>
+      <form class="cower__search">
+        <input class="cower__input" placeholder="Введите тему новости" required>
+        <button class="cower__button button">Искать</button>
+      </form>
+    </main>
+  </div>
+  <section class="root result hidden">
+    <div id="not-found" class="hidden">
+      <img src="<%=require('./images/icons/not-found_v1.svg').default %>" class="result__img"
+        alt="Пиктограмма нет результатов поиска">
+      <p class="result__not-found-title">Ничего не найдено</p>
+      <p class="text result__not-found-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
+    </div>
+
+    <div id="loader" class="hidden">
+      <i class="circle-preloader"></i>
+      <p class="result__text text">Идет поиск новостей...</p>
+    </div>
+    <h2 class="result__title title hidden">Результаты поиска</h2>
+
+    <div class="result__container hidden">
+      <p class="result__text hidden" id="result-error">«Во время запроса произошла ошибка. Возможно, проблема с
+        соединением или сервер недоступен. Подождите немного и попробуйте ещё раз».</p>
+    </div>
+    <template id="card__template">
+      <div class="article lower-layer">
+        <div class="article__container article__container_unauthorized">
+          <p class="article__tooltip lower-layer hidden">Войдите, чтобы сохранять статьи</p>
+          <button class="article__icon">
+            <img src="<%=require('./images/icons/save.svg').default %>" alt="Иконка сохранить" id="icon-unhover">
+            <img src="<%=require('./images/icons/save_hover.svg').default %>" alt="Иконка сохранить" id="icon-hover"
+              class="hidden">
+            <img src="<%=require('./images/icons/save_marked.svg').default %>" alt="Иконка сохранить" id="icon-mark"
+              class="hidden">
+          </button>
+        </div>
+        <a href="" target="_blank" class="article__link">
+          <img src="<%=require('./images/image_08.jpg').default %>" class="article__photo" alt="Фото к статье">
+          <div class="article__description">
+            <p class="article__date">2 августа, 2019</p>
+            <h3 class="article__title">Национальное достояние – парки</h3>
+            <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+              складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться
+              к природе.</p>
+          </div>
+          <p class="article__source">Лента.ру</p>
+        </a>
+      </div>
+    </template>
+    <button class="button result__button hidden">Показать ещё</button>
+  </section>
+
+  <section class="author root">
+    <picture class="author__picture">
+      <source media="(max-width: 769px)" srcset="<%=require('./images/author-tablet.png').default %>">
+      <source media="(max-width: 1920px)" srcset="<%=require('./images/author.png').default %>">
+      <img src="<%=require('./images/author.png').default %>" alt="Портрет автора проекта" class="author__photo">
+    </picture>
+    <div class="author__about">
+      <h2 class="title">Об авторе</h2>
+      <p class="author__description text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
+        вы занимаетесь, какими технологиями разработки владеете.</p>
+      <p class="author__description text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут
+        научились, и чем можете помочь потенциальным заказчикам.</p>
+    </div>
+  </section>
+
+  <footer class="footer root">
+    <p class="footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
+    <div class="footer__container">
+      <nav class="nav">
+        <ul class="footer__nav-text nav__list">
+          <li class="footer__item-text"><a class="footer__link" href="https://news-explorer-praktikum.ru"
+              target="_blank">Главная</a>
+          </li>
+          <li class="footer__item-text"><a class="footer__link" href="https://praktikum.yandex.ru"
+              target="_blank">Яндекс.Практикум</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="nav">
+        <ul class="footer__nav-icons nav__list">
+          <li class="footer__item-icon"><a class="footer__link" href="https://github.com/AllaBoo" target="_blank"><img
+                src="<%=require('./images/icons/github.svg').default %>" class="footer__icon" alt="Иконка GitHub"></a>
+          </li>
+          <li class="footer__item-icon"><a class="footer__link"
+              href="https://www.facebook.com/profile.php?id=100006530780129" target="_blank"><img
+                src="<%=require('./images/icons/facebook.svg').default %>" class="footer__icon"
+                alt="Иконка Facebook"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="loginPopup" class="popup">
+    <div class="popup__content">
+      <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
+      <h3 class="popup__title">Вход</h3>
+      <form class="popup__form" id="login-form" novalidate>
+        <div class="popup__input-container">
+          <p class="popup__input-name">Email</p>
+          <input type="email" id="mail" class="popup__input" placeholder="Введите почту" required>
+          <span class="popup__error-message" id="error-mail">Неправильный формат email</span>
+        </div>
+        <div class="popup__input-container">
+          <p class="popup__input-name">Пароль</p>
+          <input type="text" id="password" class="popup__input" placeholder="Введите пароль" required>
+          <span class="popup__error-message" id="error-password"></span>
+        </div>
+        <p class="popup__error-message popup__error-message_centred">Неверный логин или пароль</p>
+        <button type="submit" class="popup__button button" disabled="disabled">Войти</button>
+      </form>
+      <div class="popup__text-container">
+        <p class="popup__text">или</p>
+        <a class="popup__link" id="registerButton">Зарегистрироваться</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="registerPopup">
+    <div class="popup__content">
+      <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
+      <h3 class="popup__title">Регистрация</h3>
+      <form class="popup__form" id="register-form" novalidate>
+        <div class="popup__input-container">
+          <p class="popup__input-name">Email</p>
+          <input id="user-mail" type="email" class="popup__input" placeholder="Введите почту" required>
+          <span class="popup__error-message" id="error-user-mail">Неправильный формат email</span>
+        </div>
+        <div class="popup__input-container">
+          <p class="popup__input-name">Пароль</p>
+          <input id="user-password" type="text" minlength="2" class="popup__input" placeholder="Введите пароль"
+            required>
+          <span class="popup__error-message" id="error-user-password"></span>
+        </div>
+        <div class="popup__input-container">
+          <p class="popup__input-name">Имя</p>
+          <input id="user-name" type="text" class="popup__input" placeholder="Введите пароль" required>
+          <span class="popup__error-message" id="error-user-name"></span>
+        </div>
+        <p class="popup__error-message popup__error-message_centred">Такой пользователь уже есть</p>
+        <button type="submit" class="popup__button button" disabled="disabled">Зарегистрироваться</button>
+      </form>
+      <div class="popup__text-container">
+        <p class="popup__text">или</p>
+        <a class="popup__link" id="loginButton">Войти</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="messagePopup">
+    <div class="popup__content">
+      <img src="<%=require('./images/icons/close.svg').default %>" alt="Иконка закрытия окна" class="popup__close">
+      <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+      <a class="popup__link" id="messagePopupLoginButton">Войти</a>
+    </div>
+  </div>
+
+  <script src=" <%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+
+</html>

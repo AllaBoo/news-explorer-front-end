@@ -1,0 +1,11 @@
+.article__icon-container {
+  display: flex;
+  width: fit-content;
+}
+
+@media (max-width: 1250px) {
+  .article__icon-container  {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+}

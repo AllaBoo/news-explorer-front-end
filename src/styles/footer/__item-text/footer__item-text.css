@@ -1,0 +1,16 @@
+.footer__item-text {
+  list-style-type: none;
+  margin-right: 28px;
+}
+
+@media (max-width: 760px) {
+  .footer__item-text  {
+    margin: 0 28px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer__item-text {
+    margin: 0 0 16px;
+  }
+}

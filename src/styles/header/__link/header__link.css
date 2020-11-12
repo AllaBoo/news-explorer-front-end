@@ -1,0 +1,25 @@
+.header__link {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  display: block;
+  padding-bottom: 27px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.header__link:visited {
+  color: inherit;
+  cursor: pointer;
+}
+
+
+@media (max-width: 769px) {
+  .header__link {
+    font-size: 1rem;
+    padding-bottom: 17px;
+  }
+}

@@ -1,0 +1,9 @@
+.cower__subtitle {
+  margin: 2rem 0 4rem;
+}
+
+@media (max-width: 769px) {
+  .cower__subtitle {
+    margin: 1rem 0 3rem;
+  }
+}

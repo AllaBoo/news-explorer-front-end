@@ -1,0 +1,15 @@
+@import url(./__subtitle/greeting__subtitle.css);
+@import url(./__text/greeting__text.css);
+@import url(./__title/greeting__title.css);
+
+.greeting {
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (max-width: 1024px) {
+  .greeting {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+}

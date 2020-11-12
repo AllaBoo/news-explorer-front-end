@@ -1,0 +1,18 @@
+.header__button {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid;
+  display: inline;
+}
+
+@media (max-width: 769px) {
+  .header__button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .header__button {
+    width: 100%;
+  }
+}

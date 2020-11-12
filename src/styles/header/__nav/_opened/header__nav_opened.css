@@ -1,0 +1,5 @@
+.header__nav_opened {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

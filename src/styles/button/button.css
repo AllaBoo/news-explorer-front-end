@@ -1,0 +1,12 @@
+.button {
+  border-radius: 6.25rem;
+  box-sizing: border-box;
+  padding: .75rem 1rem;
+  font-family: Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-align: center;
+  box-shadow: none;
+  border: none;
+}

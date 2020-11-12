@@ -1,0 +1,9 @@
+.header__menu_opened {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  background-color: rgb(26, 27, 34);
+  box-sizing: border-box;
+  padding: 16px 16px 24px;
+}

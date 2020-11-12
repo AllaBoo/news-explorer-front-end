@@ -1,0 +1,16 @@
+.footer__item-icon {
+  list-style-type: none;
+  margin-left: 28px;
+}
+
+@media (max-width: 760px) {
+  .footer__item-icon {
+    margin: 0 28px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer__item-icon {
+    margin: 0 0 0 28px;
+  }
+}

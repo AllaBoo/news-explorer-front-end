@@ -1,0 +1,9 @@
+@import url(./_centred/popup__error-message_centred.css);
+
+.popup__error-message {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: .75rem;
+  color: rgb(255, 0, 0);
+}

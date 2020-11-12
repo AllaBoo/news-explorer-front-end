@@ -1,0 +1,18 @@
+.result__container {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .result__container {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .result__container {
+    display: block;
+  }
+}

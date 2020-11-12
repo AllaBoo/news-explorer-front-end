@@ -1,0 +1,15 @@
+.result__title {
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 769px) {
+  .result__title {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .result__title {
+    margin-bottom: 1.5rem;
+  }
+}

@@ -1,0 +1,58 @@
+@import url(./body/body.css);
+@import url(./root/root.css);
+@import url(./lower-layer/lower-layer.css);
+@import url(./nav/nav.css);
+@import url(./button/button.css);
+@import url(./header/header.css);
+@import url(./title/title.css);
+@import url(./result/result.css);
+@import url(./article/article.css);
+@import url(./text/text.css);
+@import url(./greeting/greeting.css);
+@import url(./span/span.css);
+@import url(./popup/popup.css);
+@import url(./popup/_opened/popup_opened.css);
+@import url(./footer/footer.css);
+@import url(./hidden/hidden.css);
+
+@font-face {
+  font-family: Inter;
+  font-style:  normal;
+  font-weight: 400;
+  src: url("../fonts/inter-regular.woff") format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style:  normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-regular.woff") format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style:  normal;
+  font-weight: 500;
+  src: url("../fonts/roboto-medium.woff") format("woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style:  normal;
+  font-weight: 900;
+  src: url("../fonts/roboto-black.woff") format("woff2");
+}
+
+@font-face {
+  font-family: Roboto Slab;
+  font-style:  normal;
+  font-weight: 400;
+  src: url("../fonts/robotoslab-regular.woff") format("woff2");
+}
+
+@font-face {
+  font-family: Source Sans Pro;
+  font-style:  normal;
+  font-weight: 400;
+  src: url("../fonts/sourcesanspro-regular.woff") format("woff2");
+}

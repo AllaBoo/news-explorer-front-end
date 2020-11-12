@@ -1,0 +1,10 @@
+.header__link_active {
+  color: inherit;
+  border-bottom: 3px solid;
+  cursor: pointer;
+}
+
+.header__link_active:visited {
+  color: inherit;
+  cursor: pointer;
+}

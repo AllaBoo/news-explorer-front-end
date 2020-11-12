@@ -1,0 +1,23 @@
+.cower__container {
+  width: 42%;
+  box-sizing: border-box;
+  display: block;
+  padding: 5rem 0;
+  margin: auto;
+  color: rgb(255, 255, 255);
+}
+
+@media (max-width: 950px) {
+  .cower__container {
+    width: 59%;
+    padding: 2.375rem 0;
+    margin: auto;
+  }
+}
+
+@media (max-width: 370px) {
+  .cower__container {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+}
