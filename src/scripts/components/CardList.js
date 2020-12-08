@@ -18,7 +18,7 @@ export class CardList {
 
   render(articles) {
     this.articlesArr = articles;
-    const initArr = this.articlesArr.slice(0, 3);
+    const initArr = this.articlesArr.slice(0, 3); //возвращает массив из удалённых элементов
     initArr.forEach(data => {
       this.addCard(data)
     });

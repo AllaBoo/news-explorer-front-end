@@ -7,6 +7,7 @@ export class Result {
 
   searchNews(keyword) {
     event.preventDefault();
+    // цикл для удаления всех детей
     while (resultContainer.firstChild) {
       resultContainer.removeChild(resultContainer.firstChild);
     };
@@ -35,6 +36,7 @@ export class Result {
         resultLoading.classList.add('hidden');
       })
       .catch(() => {
+        resultLoading.classList.add('hidden');
         resultError.classList.remove('hidden');
       })
   }
