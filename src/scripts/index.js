@@ -1,5 +1,5 @@
 import '../styles/index.css';
-import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultMoreButton, messagePopupLoginButton, headerIcon } from './constants/constants'
+import { loginPopup, messagePopup, registerPopup, loginButton, registerButton, loginButtonHeader, resultContainer, cardTemplate, searchForm, searchWord, resultMoreButton, messagePopupLoginButton, headerIcon, logoutButton } from './constants/constants'
 import { newsApiServer, mainApiServer } from './config/config'
 import { PopupLogin } from './components/PopupLogin';
 import { PopupRegister } from './components/PopupRegister';
@@ -19,8 +19,10 @@ const popupMessage = new PopupMessage(messagePopup);
 const popupRegister = new PopupRegister(registerPopup, mainApi, popupMessage, formValidator);
 const popupLogin = new PopupLogin(loginPopup, mainApi, header, formValidator);
 const newsApi = new NewsApi(newsApiServer);
+
 const createCard = (...args) => new Card(...args);
 const addCard = (...arg) => new CardList(resultContainer, cardTemplate, createCard, mainApi).addCard(...arg);
+
 const cardList = new CardList(resultContainer, cardTemplate, createCard, mainApi);
 const result = new Result(newsApi, cardList);
 
@@ -47,3 +49,8 @@ resultMoreButton.addEventListener('click', () => cardList.renderMore());
 
 headerIcon.addEventListener('click', () => header.openMenu());
 header.render();
+
+logoutButton.addEventListener('click', () => {
+  mainApi.signOut();
+  window.location.reload();
+});

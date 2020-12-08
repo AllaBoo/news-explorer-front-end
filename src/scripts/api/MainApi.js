@@ -47,6 +47,24 @@ export class MainApi {
       .catch((err) => { throw err; })
   }
 
+  signOut() {
+    return fetch(`${this.server}signout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => { throw err; })
+  }
+
   getUser() {
     return fetch(`${this.server}users/me`, {
       method: 'GET',
@@ -99,6 +117,7 @@ export class MainApi {
       },
     }).then(res => {
       if (res.ok) {
+        console.log(res.json);
         return res.json()
       }
       const json = res.json();

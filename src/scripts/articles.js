@@ -1,7 +1,7 @@
 import '../styles/articles.css';
 
-import { resultContainer, cardTemplate, headerIcon } from './constants/constants';
-import { newsApiServer, mainApiServer } from './config/config'
+import { resultContainer, cardTemplate, headerIcon, logoutButton } from './constants/constants';
+import { mainApiServer } from './config/config'
 import { Header } from './components/Header';
 import { MainApi } from './api/MainApi';
 import { Card } from './components/Card';
@@ -29,3 +29,9 @@ mainApi.getInitialArticles()
 
 headerIcon.addEventListener('click', () => header.openMenu());
 header.render();
+
+logoutButton.addEventListener('click', () => {
+  mainApi.signOut();
+  window.location.reload();
+  window.location.href = 'http://localhost:8080';
+});
