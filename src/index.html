@@ -20,9 +20,9 @@
       <nav class="nav header__menu">
         <ul class="header__nav nav__list">
           <li class="header__item" id="main-button"><a class="header__link header__link_active"
-              href="https://news-explorer-praktikum.ru">Главная</a></li>
+              href="http://localhost:8080">Главная</a></li>
           <li class="header__item hidden" id="article-link"><a class="header__link"
-              href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
+              href="http://localhost:8080/articles.html">Сохранённые статьи</a></li>
           <li class="header__item hidden" id="quit-button"><button class="header__button button">
               <p class="header__text" id="greeting">Грета</p> <img class="header__button-icon"
                 src="<%=require('./images/icons/exit.svg').default %>" alt="Иконка выхода (разлогиниться)">
@@ -102,16 +102,18 @@
 
   <section class="author root">
     <picture class="author__picture">
-      <source media="(max-width: 769px)" srcset="<%=require('./images/author-tablet.png').default %>">
-      <source media="(max-width: 1920px)" srcset="<%=require('./images/author.png').default %>">
-      <img src="<%=require('./images/author.png').default %>" alt="Портрет автора проекта" class="author__photo">
+      <source media="(max-width: 769px)" srcset="<%=require('./images/author.jpg').default %>">
+      <source media="(max-width: 1920px)" srcset="<%=require('./images/author.jpg').default %>">
+      <img src="<%=require('./images/author.jpg').default %>" alt="Портрет автора проекта" class="author__photo">
     </picture>
     <div class="author__about">
       <h2 class="title">Об авторе</h2>
-      <p class="author__description text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
-        вы занимаетесь, какими технологиями разработки владеете.</p>
-      <p class="author__description text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут
-        научились, и чем можете помочь потенциальным заказчикам.</p>
+      <p class="author__description text">Я начинающий frontend разработчик и использую инструменты: HTM5, CSS3, JavaScript ES5+, React, GIT. Есть опыт работы с незнакомым кодом в реальных и учебных проектах, продуктивного взаимодействия с дизайнерами.</p>
+      <p class="author__description text">15 лет я занималась созданием и развитием проектов в туризме. Создание сайтов
+        для этих проектов всегда было моей любимой частью работы. Этот опыт научил меня воспринимать сайты как
+        инструмент решения задач бизнеса, при этом учитывая нюансы: целевую аудиторию, поддержку, интеграции... К тому
+        же организация путешествий изрядно обогатила мой арсенал soft-skills, помогающий справится с высокой сезонной нагрузкой, неопределённостью, дефицитом ресурсов.</p>
+      <p class="author__description text">Цель-минимум: найти работу в компании с сильной командой и поддерживающей развитие разработчика средой. Цель-максимум: увеличить количество хороших сайтов в мире.</p>
     </div>
   </section>
 

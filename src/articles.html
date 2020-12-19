@@ -18,10 +18,9 @@
     <p class="header__logo">NewsExplorer</p>
     <nav class="nav header__menu">
       <ul class="header__nav nav__list">
-        <li class="header__item" id="main-button"><a class="header__link"
-            href="https://news-explorer-praktikum.ru">Главная</a></li>
+        <li class="header__item" id="main-button"><a class="header__link" href="http://localhost:8080/">Главная</a></li>
         <li class="header__item"><a class="header__link header__link_active" id="article-link"
-            href="https://news-explorer-praktikum.ru/articles.html">Сохранённые статьи</a></li>
+            href="http://localhost:8080/articles.html">Сохранённые статьи</a></li>
         <li class="header__item hidden" id="quit-button"><button class="header__button button">
             <p class="header__text" id="greeting">Грета</p> <img class="header__button-icon"
               src="<%=require('./images/icons/exit-black.svg').default %>" alt="Иконка выхода (разлогиниться)">
@@ -45,10 +44,12 @@
   <section class="greeting root">
     <p class="greeting__subtitle">Сохранённые статьи</p>
     <h2 class="greeting__title"><span id="user-greeting">Грета</span>, у вас <span id="articles-amount">5</span>
-      <span id="articles-caption">сохранённых статей</span></h2>
+      <span id="articles-caption">сохранённых статей</span>
+    </h2>
     <p class="greeting__text">По ключевым словам: <span class="span" id="first-tag">Природа</span>, <span class="span"
         id="second-tag">Тайга</span> <span class="span" id="copulative">и</span>
-      <span class="span" id="tag-amount">2-м</span> <span class="span" id="tag-caption">другим</span></p>
+      <span class="span" id="tag-amount">2-м</span> <span class="span" id="tag-caption">другим</span>
+    </p>
   </section>
   <main class="result root">
     <div class="result__container">
